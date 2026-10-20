@@ -30,21 +30,19 @@ from urllib.parse import urlsplit
 SCHEMA_VERSION = 1
 ENGINE_SOURCE_HASH = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
 RAM_MINIMUM = 1 << 30
-# Optional operator override for hosts whose free-page reading sits near the default floor
-# while total memory is ample.  It can only relax the floor between 512 MiB and the default
-# 1 GiB, never below; heavy work still halts and no process is ever terminated.
-RAM_MINIMUM_FLOOR = 512 << 20
+# An operator may raise the guard, but cannot relax the 1 GiB physical-memory floor.
+RAM_MINIMUM_FLOOR = RAM_MINIMUM
 
 
 def configured_ram_minimum(default=RAM_MINIMUM):
     raw = os.environ.get("NF_RAM_FLOOR_MIB")
     if not raw:
-        return default
+        return max(RAM_MINIMUM_FLOOR, default)
     try:
         value = int(str(raw).strip()) << 20
     except (TypeError, ValueError):
-        return default
-    return max(RAM_MINIMUM_FLOOR, min(default, value))
+        return max(RAM_MINIMUM_FLOOR, default)
+    return max(RAM_MINIMUM_FLOOR, default, value)
 XELATEX_TIMEOUT = 1800
 XELATEX_FLAGS = ("--no-shell-escape", "--interaction=nonstopmode", "--halt-on-error")
 # 可选兜底：仅当 PATH 上没有 xelatex 且显式设置了 NF_XELATEX_LEGACY 时才使用。
@@ -245,7 +243,7 @@ def available_physical_memory():
 
 def ensure_ram(reader=None, minimum=None):
     """Halt heavy work below `minimum` free RAM.  Never terminates any process."""
-    minimum = configured_ram_minimum() if minimum is None else minimum
+    minimum = configured_ram_minimum() if minimum is None else max(RAM_MINIMUM_FLOOR, minimum)
     available = (reader or available_physical_memory)()
     if available is None:
         raise EngineError("cannot determine available physical RAM; refusing heavy work")

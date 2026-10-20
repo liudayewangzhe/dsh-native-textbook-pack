@@ -6,6 +6,8 @@ worker 只读任务单指定的原稿页、packet 文本/JSON、必要页面图�
 
 ## 一次完成语义 TeX
 
+长文档工作包先由监工按 [translation-orchestration.md](translation-orchestration.md) 建立当前 brief：本包范围、有效作用域术语、必要只读邻居摘录、规则与输出路径。不要把摘录重复输出，不按字符硬切证明/公式组/表格/代码，不截断本块命中术语。只在独立文件提交新术语与歧义观察；共享术语、状态和审查仍由主控单写。没有状态工具的短任务也遵守相同责任边界。
+
 先读完整小节的证据，再翻译并重建 TeX。把跨页段落连起来，按原书论证顺序排版。保留正文、脚注、题号、公式号、图表号、数值与条件。不要把提取出的乱码数学字符直接粘贴到正文；必须看来源页确认。不能确认的内容记录到 unresolved，不允许截图公式或表格兜底。
 
 content.json 包含 title、blocks、exclusions、source_notes（可选）、unresolved、expectations。block 的 id 唯一，source_ids 是证据包原始 ID。允许的 kind 为 chapter、section、subsection、paragraph、equation、table、figure、figure_native。普通 kind 用 tex；figure 用 asset、width（文本宽度比例）、caption、可选原文 number。定义、定理、证明、列表的文字放 paragraph 的原生 TeX 中，显示数学拆到 equation，不能虚构引擎不支持的 kind。数学正文应使用原生数学命令；编号公式给真实原号的 tag，原文无编号的显示公式用 numbered:false 和 equation*/align*；表格采用 tabular/tabularx/longtable 的可编辑单元格。原文无图题的未编号图可以 caption 为空。
@@ -21,6 +23,8 @@ expectations 的 equation_tags、table_count、figure_count 和 required_strings
 不在 block 中放 documentclass、usepackage、input/include、includegraphics、write/open/read、catcode 或 shell 操作。**book** 的正常章节排版不随来源页强制 newpage；**slide** 可按锁定的源页对应显式分页，不能用这条书籍规则取消课件页界。没有独立编号的源图用清楚的选段标签，不制造原书编号。
 
 ## 交回监工
+
+代码与控制台块使用引擎已有的 `kind:code|console`，字段严格为 `id/kind/source_ids/text`；`text` 是原始字节意义的代码/输出，保留缩进、反斜杠、百分号及换行，不写 `tex` 或额外 `language`。对应来源清单仍按真实文字/区域类别登记，不能把内容 block 的 kind 当作 `source_inventory` 的 kind。
 
 尾处理优先提交 `id/old_tex/new_tex/reason`，old_tex 必须与输入逐字匹配。禁止顺带改公式、数字、编号、来源ID或图的科学关系；这些问题单列证据交监工裁决。跨页接段、标题身份、注释布局和连续公式使用已锁定规则，不把源页边界当段落边界。
 

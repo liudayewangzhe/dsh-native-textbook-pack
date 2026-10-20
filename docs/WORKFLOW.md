@@ -4,6 +4,8 @@
 
 > 术语约定：**证据包**是 `prepare` 产出的只读来源材料（`packet/`）；**门禁**是必须实际通过才能进入下一阶段的检查；**视觉复核**是看渲染图，不是跑脚本。
 
+长文档、多 worker 或断点续跑时，在 draft → merge 之间接入 [语义工作包编排](../skills/native-textbook/references/translation-orchestration.md)：`init → plan → brief → worker → record → verify`。它管理有序清单、作用域术语、只读邻居和依赖失效；输出仍是现有原生语义合同。`draft_verified` 不是 `reviewed`，模板或资产变化后仍须重建与重新审核 PDF。设计取舍见 [ARCHITECTURE-UPGRADE.md](ARCHITECTURE-UPGRADE.md)。
+
 ---
 
 ## 0. 先确定交付形态与范围

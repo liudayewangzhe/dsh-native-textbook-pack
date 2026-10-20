@@ -85,6 +85,9 @@ def main():
     ap.add_argument("--report")
     ap.add_argument("--out")
     a = ap.parse_args()
+    if not all(math.isfinite(value) and value > 0 for value in
+               (a.lead, a.body, a.min_gap_ratio, a.max_x)):
+        ap.error("lead, body, min-gap-ratio and max-x must be finite and positive")
 
     PT2MM = 25.4 / 72.0
     lead_mm = a.lead * PT2MM
@@ -116,8 +119,10 @@ def main():
                 continue
             w = float(m.group("w"))
             y = float(m.group("y"))
+            if w <= 0 or not all(math.isfinite(value) for value in (x, y, w)):
+                ap.error(f"page {pg}: matched text node has invalid width or coordinates")
             txt = m.group("body").strip()
-            nlines = max(1, int(math.ceil(width_mm(txt, cjk_mm) / w)) if w > 0 else 1)
+            nlines = max(1, int(math.ceil(width_mm(txt, cjk_mm) / w)))
             items.append({"y": y, "x": x, "w": w, "lines": nlines, "text": txt})
         items.sort(key=lambda d: d["y"])
         per_page[pg] = [
@@ -142,16 +147,20 @@ def main():
                                 f"y={prev['y']} 间距 {gap:.1f}mm，但上一项有 {prev['lines']} 行、"
                                 f"行盒 {prev['lines']*lead_mm:.1f}mm，需 ≥{need:.1f}mm")})
     n_lines = sum(len(v) for v in per_page.values())
+    status = "not_applicable" if n_lines == 0 else (
+        "failed" if any(f["severity"] == "error" for f in findings) else "passed")
     print(f"[info] 扫描 {len(per_page)} 页、{n_lines} 个文本节点；"
           f"行距 {a.lead}pt={lead_mm:.2f}mm，字宽 {cjk_mm:.2f}mm")
     for f in findings:
         print(f"  [{f['severity']}] {f['code']} {f['message']}")
-    if not findings:
+    if status == "not_applicable":
+        print("  [not_applicable] 未识别到受支持节点；不能据此报告间距检查通过。请检查实际 PDF 或提供受支持的显式节点源。")
+    elif not findings:
         print("  ✅ 未发现行盒冲突（这**不**代表没有遮挡：图形压字、字体字形仍须看图）")
 
     result = {"tex": str(Path(a.tex).resolve()), "lead_pt": a.lead, "body_pt": a.body,
               "lead_mm": round(lead_mm, 3), "nodes": n_lines,
-              "findings": findings, "pages": per_page}
+              "findings": findings, "pages": per_page, "check_status": status}
     if a.out:
         import json
         Path(a.out).parent.mkdir(parents=True, exist_ok=True)
@@ -161,7 +170,9 @@ def main():
         L = [f"# 课件文本行盒检查 — {Path(a.tex).name}", "",
              f"- 行距 {a.lead} pt = {lead_mm:.2f} mm；正文字宽 {cjk_mm:.2f} mm",
              f"- 扫描 {len(per_page)} 页 / {n_lines} 个文本节点", "", "## 结论", ""]
-        if findings:
+        if status == "not_applicable":
+            L.append("- 未覆盖：未识别到受支持节点，不能报告间距检查通过；须实测实际 PDF 或补充受支持的源表示。")
+        elif findings:
             for f in findings:
                 L.append(f"- ❌ **{f['code']}** — {f['message']}")
         else:
@@ -180,7 +191,7 @@ def main():
         Path(a.report).write_text("\n".join(L), encoding="utf-8")
         print(f"[ok] Markdown -> {a.report}")
 
-    return 1 if any(f["severity"] == "error" for f in findings) else 0
+    return 2 if status == "not_applicable" else (1 if status == "failed" else 0)
 
 
 if __name__ == "__main__":

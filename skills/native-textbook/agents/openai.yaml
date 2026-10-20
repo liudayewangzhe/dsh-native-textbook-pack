@@ -1,6 +1,6 @@
 interface:
   display_name: "原生中文教材与课件"
-  short_description: "将技术教材或横版课件译排为原生中文 PDF，检查数学、矢量图和实际页面"
-  default_prompt: "使用 $native-textbook 按我的交付形态要求制作原生中文教材或课件 PDF，并完成内容与页面核验。"
+  short_description: "外文文档原生中文 PDF：语义分包、术语续跑、图表封面、排版及逐页复核"
+  default_prompt: "使用 $native-textbook，先按来源规划书籍或课件路线与风险样张，再以原生数学、表格、图形和封面制作中文 PDF；长文档管理术语与可恢复工作包，完成内容、排版、逐页视觉和独立复编核验。"
 policy:
   allow_implicit_invocation: true

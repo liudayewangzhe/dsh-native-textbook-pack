@@ -6,7 +6,7 @@
 
 读取完整授权源页并渲染查看。记录来源SHA256、物理页数、MediaBox/CropBox与旋转、实际可见标题、文本阅读顺序、每个公式/推导项、每幅图的全部标签、定义框与列表归属。文字层有标题而渲染不可见时，分开登记；不能凭抽取顺序恢复叠放关系。
 
-为每个输出页绑定源页，写清是否1:1。若用户要求近似原版，一般保留页对应；中文扩展超出一页时先调整语义拆行和对象位置，再判断是否需要经用户范围允许的分页变化，不能直接改为书籍流水。新增解释、编辑性标题、来源笔误修正单独记录，不伪装原文。
+默认一源页对应一输出页，保留源页序。只有用户明确授权改变页数时，才在页对应合同登记拆页、合页或新增封面及其来源范围；中文扩展先尝试语义拆行和对象重排，不能自行改成书籍流水。当前状态工具只支持 `source_pages` 与 `output_pages` 的一一映射（可改变页码）；若授权拆页/合页，使用另行明确的页对应合同，由主控集成与验收，不伪造该工具已经支持多对多。新增解释、编辑性标题、来源笔误修正单独记录，不伪装原文。
 
 按页建立三种对象合同：
 
@@ -38,7 +38,7 @@ PDF坐标与字体大小是72 pt/in：`mm=pt×25.4/72`。PPTX使用36000 EMU/mm�
 
 **页级几何写成毫米合同**（实测可复用的 4:3 中文课件，128×96 mm）：顶带 y 0–3.13、标题带 y 3.13–13.03（空标题不画带）、正文区 x 3.4–124.5 / y 18–88、页脚保留 y 93.3–96。任何正文/公式/图的**外框**（含积分上下限、根号、矩阵、分数）必须落在正文区内，不得伸入页脚保留区。完整表与封面构成见 [cover-and-geometry.md](cover-and-geometry.md)。
 
-**字号与行距按 [chinese-typography.md](chinese-typography.md) 的模数确定**，不要逐页试。中文标点、中西文间距、缩进与分页控制同见该页。关键：**声明值 ≠ 实测值**——模板写的字号与最终 PDF 抽取的字号会差（实测封面 16→14.94 pt，正文 9.5→中文 9.46 / 数学 9.96，行距 13.3→15.6–15.9），必须回抽实测并与源比对，偏差 >±3% 先查因。
+**字号与行距按 [chinese-typography.md](chinese-typography.md) 的模数确定**，不要逐页试。中文标点、中西文间距、缩进与分页控制同见该页。关键：**声明值 ≠ 实测值**——模板写的字号与最终 PDF 抽取的字号会差（实测封面 16→14.94 pt，正文 9.5→中文 9.46 / 数学 9.96，行距 13.3→15.6–15.9），必须回抽实测并与项目合同目标比对，偏差 >±3% 先查因。源字号用于忠实复刻的目标与跨语诊断；工具 auto 模式的 ±10% 告警阈值不自动豁免合同偏差。
 
 长公式先按等号、加项或语义分成aligned续行。不要缩窄整式到难以辨认；不能删项解决宽度。标题为空时，不自动画一条空灰标题带，除非来源确实有该带。页脚是保留区域，不把证明末句或公式伸进去。
 
@@ -78,7 +78,7 @@ python scripts/check_typography.py --pdf "项目\main.pdf" --mode slide --out "�
 python scripts/check_slide_pdf.py --pdf "项目\main.pdf" --config "项目\slide-check.json" --out "项目\qa\slide-check.json"
 ```
 
-配置示例（坐标单位为PDF pt，页码从1开始）：
+配置示例（坐标单位为PDF pt，页码从1开始；下列正文框对应本页 128×96 mm 样张的 x 3.4–124.5 / y 18–88 mm，其他母版须重新换算）：
 
 ```json
 {
@@ -89,8 +89,8 @@ python scripts/check_slide_pdf.py --pdf "项目\main.pdf" --config "项目\slide
   "require_embedded_fonts": true,
   "page_titles": {"2": "原生数学", "3": "原生矢量图"},
   "required_strings": {"2": ["均方根", {"text": "dt", "min_count": 2}]},
-  "body_region_pt": [0, 38, 363, 264],
-  "content_bounds_pt": [7, 38, 356, 260]
+  "body_region_pt": [9.64, 51.02, 352.91, 249.45],
+  "content_bounds_pt": [9.64, 51.02, 352.91, 249.45]
 }
 ```
 
@@ -98,13 +98,17 @@ python scripts/check_slide_pdf.py --pdf "项目\main.pdf" --config "项目\slide
 
 私用字符默认报告异常，不等同于实际缺字。Computer Modern的分段矩阵括号可能抽取成F8EE/F8F0/F8F9/F8FB；确认字体与实际可见括号后，可在项目配置`allowed_private_characters`里逐字符允许并记录`allowed_private_reason`。不要全局允许所有PUA或豁免U+FFFD。离纸检查使用无限抽取区域，避免先按纸张剪掉的字形逃过bbox检查。
 
-最终验收另有来源对照和全部输出页实际目检：正文、每个数学项、图内标签、阅读顺序、对齐、留白与清晰度。目检按 [visual-audit.md](visual-audit.md) 执行——L1 接触表（每张 6 页，看全部输出页）看完再对高风险页做 L2 高倍（PyMuPDF `Matrix(3,3)` 或 Poppler 144 dpi），逐对象核对，产物与记录绑定当前 PDF 哈希：
+最终验收另有来源对照和全部输出页实际目检：正文、每个数学项、图内标签、阅读顺序、对齐、留白与清晰度。目检按 [visual-audit.md](visual-audit.md) 执行：监工看全部输出页 L1；含公式、图、矩阵、表格、边注或封面的页逐页做 L2，**同时使用 PyMuPDF `Matrix(3,3)` 与 Poppler 144 dpi**，不能用其中一个代替另一个。独立审查者再复核高风险子集。逐对象核对，产物与记录绑定当前 PDF 哈希：
 
 ```powershell
 python scripts/render_review_sheets.py --pdf "项目\main.pdf" --out "项目\qa\review" `
-  --hi-res-pages "<本次高风险页>" --hi-res-zoom 3 --poppler-dpi 144
+  --hi-res-pages "<全部需 L2 的页>" --hi-res-zoom 3 --poppler-dpi 144
 ```
 
-审查记录绑定当前PDF和TeX/资产哈希，列出源页/输出页、方法、reviewer、issues、unresolved、**以及未覆盖的 limites**。不要让worker预填通过；没有实际看图就只能报 `visual_review: not_performed`。
+审查记录绑定当前PDF和TeX/资产哈希，列出源页/输出页、方法、reviewer、issues、unresolved、**以及未覆盖的 limits**。不要让worker预填通过；没有实际看图就只能报 `visual_review: not_performed`。
 
-独立发布包包含PDF、可编译TeX/矢量资产、构建说明、来源与内容合同、技术报告、页级审查和哈希清单。解包到另一目录重新编译并检查新PDF，证明资源没有依赖原工作目录。只有当前技术检查、真实视觉审查和未决项都完成后才交付。独立slide发布不是`nf.cmd release`，不得写`nf released`。
+独立发布包包含PDF、可编译TeX/矢量资产、构建说明、来源与内容合同、技术报告、页级审查和哈希清单。解包到另一目录，用相同引擎编译三遍；核对新 PDF 与交付 PDF 的页数、尺寸、逐页渲染 `.samples` 字节及书签 `get_toc()`，并核对源码/资产哈希。文本比较可辅助，不能替代像素和书签检查。只有当前技术检查、真实内容与视觉审查和未决项都完成后才交付。独立slide发布不是`nf.cmd release`，不得写`nf released`。
+
+## 源码间距检查的适用范围
+
+`check_slide_spacing.py` 当前识别 `\Slide[页码]` 与 `nftxt/nftxts/nfhd` 显式坐标节点；不展开任意 TeX 宏。扫描 0 节点时返回 `check_status:not_applicable`、退出码 2，不能当作间距通过。仓库的 `\T/\B` 模板属于这一限制：由主控实测最终 PDF 的文本行盒并逐页看图，或另行提供经验证的显式节点表示；记录替代核验的范围和证据。退出码 1 表示检出冲突，2 也可能是配置错误，必须读诊断区分，不能统一忽略非零。

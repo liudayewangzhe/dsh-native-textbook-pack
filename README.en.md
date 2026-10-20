@@ -4,6 +4,8 @@
 
 This is a skill pack + conversion engine (Native Forge) + field notes for **DeepSeek Harness (DSH)**. The full documentation is in Chinese: see **[README.md](README.md)**.
 
+The 2026-10-20 upgrade adds resumable semantic work packages, scoped terminology, read-only neighboring context and dependency-aware invalidation. Native math, tables, figures, cover design, slide geometry and rendered-page acceptance remain separate requirements. See the [architecture decisions](docs/ARCHITECTURE-UPGRADE.md), [workflow contract](skills/native-textbook/references/translation-orchestration.md) and [runnable smoke example](examples/orchestration-smoke.md).
+
 ![Before/after visual review example](skills/native-textbook/assets/review-examples/compare-p03-matrix.png)
 
 ## What it does

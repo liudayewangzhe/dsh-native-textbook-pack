@@ -4,6 +4,8 @@
 
 这是一个面向 **DeepSeek Harness（DSH）** 的技能包 + 转换引擎 + 经验手册。陌生人 `git clone` 后按本文操作即可开始工作。
 
+**2026-10-20，native-textbook 2.0 编排升级**：在原生制作与逐页验收之上，加入语义工作包、作用域术语、只读邻居上下文、来源/输出指纹、断点恢复与精确失效。保留原生图表、封面绘制、中文排版、扫描修复、PPT 风格 PDF 和独立复编；技术文档的最终出版继续使用 XeLaTeX。见 [设计与合并取舍](docs/ARCHITECTURE-UPGRADE.md)、[实际执行合同](skills/native-textbook/references/translation-orchestration.md)、[可运行小样本](examples/orchestration-smoke.md) 与 [验证范围](docs/UPGRADE-VALIDATION.md)。
+
 ![原生中文课件复核对照：左为失败稿，右为通过稿](skills/native-textbook/assets/review-examples/compare-p03-matrix.png)
 
 > 对照示例来自本仓库真实复核材料。左：矩阵上下标错位、条目断行；右：公式为可编辑原生数学、中文标点与行距统一。

@@ -23,3 +23,5 @@ jobs:
           python-version: "3.12"
       - name: 校验 MANIFEST.json
         run: python verify_pack.py --strict
+      - name: 工作包状态回归（标准库，无模型调用）
+        run: python -m unittest discover -s tests -p 'test_translation_state.py' -v

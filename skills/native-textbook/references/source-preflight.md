@@ -2,6 +2,8 @@
 
 新来源、扫描/OCR 混合页、代码/化学/课件、边注与多栏、多面板宽对象，或批量审查不同书目时，先读引擎 `docs/preflight.md`（默认 `E:\PDF\_ZH\native-forge\docs\preflight.md`；迁移时按 `NATIVE_FORGE_HOME` 解析）。该文件是前检字段、候选边界和验收的单一说明。
 
+**文字层正常但公式和插图全是位图**的来源（Calibre 从 EPUB 生成、部分出版社纯图排版）另走 [bitmap-math-sources.md](bitmap-math-sources.md)：前检的"有文字层"结论在这类来源上会误导，必须先用字体直方图 + 图像面积分布确认类型。
+
 用带 PyMuPDF 的 Python 在引擎目录执行：
 
 ```powershell

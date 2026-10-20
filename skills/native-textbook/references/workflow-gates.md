@@ -11,6 +11,7 @@
 | 环节 | 能证明 | **不能**证明 |
 |---|---|---|
 | 来源 ID 全覆盖 | 每个来源对象都被分配了去处 | 内容没漏译、没误绑定。一个块可以挂着整段 ID 却漏其中一句 |
+| 工作包状态 `draft_verified` | 清单顺序、来源/上下文/术语依赖、输出哈希与草稿结构当前一致 | 译文/数学正确、无句子遗漏、图形正确、PDF已重建或审查；`review_valid` 始终为 false |
 | 文字可提取 | 有文本层，可复制、可搜索 | 数学语义正确、翻译正确、阅读顺序正确 |
 | `get_images()` 为空 | 页面资源字典里没有位图对象 | 页面是矢量；shading 可能被渲染器报成运行时图像 |
 | PDF/SVG 后缀 | 容器格式 | 内部是矢量。把 PNG 包进 SVG 不转成矢量 |
@@ -122,7 +123,7 @@
 
 ```json
 {
-  "artifact": "build/main.pdf",
+  "artifact": "out/main.pdf",
   "pdf_sha256": "...", "tex_sha256": "...", "assets_sha256": "...",
   "source_sha256": "...", "source_pages_covered": "1-15",
   "pages_total": 15,
@@ -151,9 +152,33 @@
 - `limits` 必填。不写未覆盖范围的报告视为不完整。
 - `size_check` 是"声明值 ≠ 实测值"门禁的落点，见 [cover-and-geometry.md](cover-and-geometry.md) §4。
 - 报告披露**真实范围**：哪些沿用旧审校、哪些本轮重新检查，不把继承证据称作重新逐字校对。
+- 内容、原生表示、技术、排版、视觉、独立复编分别记录 `not_performed / partial / passed / failed` 和真实范围。某维度是 `partial` 或 `not_performed` 时，不能仅因另一维度通过就把整个授权范围标成 `reviewed`。已有历史报告用词冲突时保留历史事实，并在本轮报告明确解释，不追认不存在的检查。
+- 术语/上下文/规则变化先修订受影响工作包；模板、封面、绘图或字体环境变化重建并使旧 PDF 审查失效。当前状态与失效规则见 [translation-orchestration.md](translation-orchestration.md)。
 
 ## 相关
 
 - 纯视觉审核与 JSON 记录：[visual-audit.md](visual-audit.md)
 - 五阶段门与尾处理定位：[first-draft-and-polish.md](first-draft-and-polish.md)
 - 课件独立发布清单：[slide-native-pdf.md](slide-native-pdf.md)（slide 发布**不是** `nf.cmd release`，不得写 `nf released`）
+
+## 9. 实测踩坑（带彩色语义框的教材项目）
+
+以下每条都在"Pearson 风格双栏教材 → 中文单栏 + 语义框"的 331 页项目里真实踩过，**不是推测**。
+
+1. **引擎禁止 paragraph 块含 `tabular`/显示数学**，但语义框必须"整框一个块"，而框里常有表格和行间公式。
+   做法：在 `project.preamble` 定义 `\nftab{列格式}{表体}`、`\nftabx{...}{...}`、`\nfdisp{...}`、`\nfaligndisp{...}`，由 worker 在框内用宏写。
+   这些宏仅用于保留语义框的排版，不能把“不触发字面量检查”当作验收。展开后的数学与表格仍须按独立对象计入来源合同、期望数量、原生性检查和逐对象视觉核对；框外表格/公式继续使用 `kind:"table"` / `"equation"`。未能验证宏内对象时保持未决，不能靠隐藏命令过门禁。
+2. **中文正文里的 `%` 必须转义**。`39%` 会把该行剩余部分（连 `\\` 与 `\midrule`）整行注释掉，下一行多出 `&`，报 `Extra alignment tab`，且报错行号指向**下一行**，极难定位。
+   做法：合并前检查未转义 `%`，按其实际处于正文、注释、代码/逐字环境的上下文修正；TeX 合法行尾注释不能全局替换。修复后对照源内容并重编，避免把一条正则当作通用 TeX 解析器。
+3. **字面量 `\n`、`\` 后接汉字、`\begin{tikzpicture}` 写两遍**（第二份的 `[选项]` 会变成正文）都只是 LaTeX 层面的低级错，但都会让 400+ 页的整书编译停住。
+   做法：合并前统一正则修复 + 环境配对自检（itemize/enumerate/axis/tikzpicture/figure/tabular/tcolorbox）。
+4. **`\shade`（渐变）会生成 Form XObject，被 `nf qa` 判为"runtime proxy 位图"而 release 失败**。扁平 `\fill`、条纹色带（多条细矩形）都是纯矢量，不产生该对象。封面设计要"炫"时用后者，不要用渐变色。
+5. **pgfplots 默认按千分位格式化刻度**：年份 1964 会印成 `1,964`；数值轴还会自动缩放成 `0.5/1/1.5/2 ×10⁶`。
+   做法：preamble 里统一 `\pgfplotsset{every axis/.append style={scaled x ticks=false, scaled y ticks=false, xticklabel style={/pgf/number format/1000 sep={}}, yticklabel style={/pgf/number format/1000 sep={,}}}}`。
+6. **`check_typography.py` 的两类稳定误报**（逐页目检后确认可忽略，写进报告即可，不要为它改版面）：
+   - 分式公式的分子/分母 bbox 交叠 → 报 `text_overlap`；
+   - 白字压在彩色标题条上时按**框底色**取色 → 报 `text_obscured_by_fill` 且对比度 <2。
+7. **`release` 要求 `review.json.issues` 为空**。把"已修/按设计接受"的记录留在项目报告与审核文档里，`review.json` 只放**未关闭缺陷**；否则会在最后一步被挡住。
+8. **引擎的 1 GiB 内存门槛会逐页检查**，长书一次性 `prepare 1-331` 很容易在中途失败。做法：按 28–56 页分批 `prepare` 到临时项目，再合并 `packet/pages/*` 与 `packet.json` 索引（schema 与哈希算法同引擎）；所有引擎调用套"等空闲内存 ≥1250 MB 再跑、失败重试"的循环。
+9. **运行时装在 `~/.cache` 下的 Python 可能被缓存回收**，表现为"文件存在但 PowerShell/cmd 报无法识别"。做法：把整套 Python 运行时复制到项目盘的稳定路径，并直接调用 `python <engine>/native_forge.py <cmd>`（`nf.cmd` 里硬编码的路径会失效）。
+10. **exFAT 工作区的原子写会稳定失败**（`EISDIR`）：项目放 NTFS，成品再拷到 exFAT 交付盘。

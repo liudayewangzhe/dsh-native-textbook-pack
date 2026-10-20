@@ -4,6 +4,8 @@
 
 ## 实际任务单
 
+跨批次任务可用 [translation-orchestration.md](translation-orchestration.md) 的状态工具管理 brief 与术语，但产物保持本页 `pages` 合同。清单中 `source_pages` 和可选 `output_pages` 明确一一对应，不能将本包输出塞进 book 的 `blocks`。真实空白页仍登记 `blank:true, checked:true, reason`，不编造内容；纯空白页不需要翻译工作包，仍列入项目页数与视觉审核范围。
+
 监工填写真实路径与锁定参数，不把空模板当交接：
 
 ```text

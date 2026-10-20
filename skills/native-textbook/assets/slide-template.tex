@@ -68,21 +68,25 @@
   \E{matrix}{65}{38}{v=\begin{bmatrix}v_1\\v_2\\v_3\end{bmatrix}}{10}
   \B{rms-label}{52}{}{均方根：完整保留极限、分母和积分上下限}
   \E{rms}{65}{67}{\left(\lim_{T\to\infty}\frac1T\int_0^T u(t)^2\,dt\right)^{1/2}}{10}
-  \T{native-math}{10.6}{81}{113.4}{9.5}{直接排版数学：$\dfrac{dv}{dt}$，不拆成SVG字形文本框。}
+  \T{native-math}{10.6}{79}{113.4}{9.5}{直接排版数学：$\dfrac{dv}{dt}$，不拆成SVG字形文本框。}
 }
 \Slide{示例}{原生矢量图}{
   \B{geometry}{22}{}{矩形与三角形的面积均为 $1$}
   \begin{scope}[shift={(43,63)},font=\fontsize{9}{11}\selectfont]
     \draw[black!65,-{Stealth[length=1.5mm]}] (-17,0)--(17,0) node[right] {$t$};
     \draw[waveblue,line width=.6pt] (-4,0)--(-4,-20)--(4,-20)--(4,0);
-    \node[above] at (0,-20) {$\epsilon$};
-    \node[left] at (-4,-10) {$1/\epsilon$};\node[below] at (0,0) {$t=0$};
+    \draw[black!65,<->] (-12,0)--(-12,-20) node[midway,left] {$1/\epsilon$};
+    \draw[black!45,densely dashed] (-4,0)--(-4,8) (4,0)--(4,8);
+    \draw[black!65,<->] (-4,7)--(4,7) node[midway,below] {$\epsilon$};
+    \node[below] at (0,0) {$t=0$};
   \end{scope}
   \begin{scope}[shift={(92,63)},font=\fontsize{9}{11}\selectfont]
     \draw[black!65,-{Stealth[length=1.5mm]}] (-17,0)--(17,0) node[right] {$t$};
     \draw[waveblue,line width=.6pt] (-8,0)--(0,-20)--(8,0);
-    \node[above] at (0,-20) {$2\epsilon$};
-    \node[left] at (-8,-10) {$1/\epsilon$};\node[below] at (0,0) {$t=0$};
+    \draw[black!65,<->] (-13,0)--(-13,-20) node[midway,left] {$1/\epsilon$};
+    \draw[black!45,densely dashed] (-8,0)--(-8,8) (8,0)--(8,8);
+    \draw[black!65,<->] (-8,7)--(8,7) node[midway,below] {$2\epsilon$};
+    \node[below] at (0,0) {$t=0$};
   \end{scope}
   \T{contract}{10.6}{79}{113.4}{9.5}{图形合同：宽度、高度、轴、标签和图注一起核验。}
 }

@@ -1,13 +1,21 @@
 ---
 name: native-textbook
-description: Translate technical books or slide PDFs into native Chinese LaTeX PDFs with editable math and tables, vector figures, and rendered checks; preserve slide style when requested.
+description: Rebuild foreign-language books, papers and slide PDFs as native Chinese LaTeX PDFs, with resumable semantic translation, consistent terms, native figures and covers, and source-to-render review.
+metadata:
+  version: "2.0.0"
 ---
 
 # 原生中文教材与课件工作流
 
-这是 `office-files/native-textbook` 的直接调用入口。用于技术教材和课件的中文原生 PDF，不替换一般 PDF 阅读或 Word 转换。书籍引擎在 `E:\PDF\_ZH\native-forge`，可用 `NATIVE_FORGE_HOME` 指定迁移后的路径；入口是 [scripts/nf.cmd](scripts/nf.cmd)。
+这是 `office-files/native-textbook` 的直接调用入口。将外文书籍、论文、讲义和课件重建为原生中文 PDF；也可从 DOCX、EPUB、Markdown 的结构与资源建立来源证据。一般 PDF 阅读、普通 Word 转换仍用对应文档技能。书籍后端是 Native Forge / XeLaTeX；课件保留独立页级 XeLaTeX 路线。用 `NATIVE_FORGE_HOME` 指向引擎；入口是 [scripts/nf.cmd](scripts/nf.cmd)。
 
 **"编译成功""检查通过""模型说看过"三者不能互相替代。** 本技能的所有门禁都建立在"每个检查证明什么、不证明什么"之上；越界引用检查结论视为造假。
+
+## 工作流骨架
+
+来源与授权范围 → book / slide 产品合同 → 对象清单与版式/图形/封面方案 → 真实风险样张 → 完整语义工作包与术语/邻居上下文 → 受限 worker → 监工核查状态并集成 → 原生 PDF → 内容、技术、排版、逐页视觉和独立复编验收。先规划模块、失败类别及各自验收，再批量制作。
+
+长文档、多 worker、续跑或术语修订，先读 [translation-orchestration.md](references/translation-orchestration.md)。新增的 `translation_state.py` 管理来源身份、单写者状态、作用域术语和依赖失效；它不取代原生制作与审核，不写 `reviewed` 或 `released`。短文档可直接使用现有 worker 合同，不为简单任务强加状态文件。
 
 ## 文档地图
 
@@ -16,8 +24,11 @@ description: Translate technical books or slide PDFs into native Chinese LaTeX P
 | 文件 | 什么时候读 |
 |---|---|
 | [first-draft-and-polish.md](references/first-draft-and-polish.md) | **总是**。角色分工、风险样张门槛、尾处理症状表、放行五阶段 |
+| [translation-orchestration.md](references/translation-orchestration.md) | **长文档、多 worker、续跑或术语修订必读**。语义包、术语作用域、只读邻居、版本化 brief、精确失效、反馈闭环与旧稿接入 |
 | [source-preflight.md](references/source-preflight.md) | 新来源、异构书目、扫描件 |
 | [scanned-source-repair.md](references/scanned-source-repair.md) | **扫描件（无文字层）总是**。标准修复流水线、症状→脚本判定表、worker 派单模板、两道内容损失门禁；脚本在 `scripts/scan_repair/` |
+| [bitmap-math-sources.md](references/bitmap-math-sources.md) | **文字层正常但公式/图全是截图**（Calibre 转出的 EPUB-PDF 等）。三个数字确认来源类型、三类对象确定性抽取与已知陷阱、联络表压看图成本、引擎硬约束、数学定界符 lint、照片例外、exFAT 工作区 |
+| [front-matter-and-clean-sources.md](references/front-matter-and-clean-sources.md) | **授权范围从第 1 页开始**，或源是 LaTeX 原生输出（真数学字体、正文页无图）。开本取舍、题词/书名/版权/献词/目录/分部扉页的各自做法、零文字页必须显式登记 blank、连字与字距大写标题等抽取坑、目录多重集核对与独立复编判据 |
 | [layout-and-polish.md](references/layout-and-polish.md) | 边注、宽版原稿、超宽对象、对已有稿做尾处理 |
 | [chinese-typography.md](references/chinese-typography.md) | **总是**。字号模数、行距、留白下限、中文标点禁则、缩进、分页控制、中文学术语言精修 |
 | [cover-and-geometry.md](references/cover-and-geometry.md) | 做封面、定页边距/版心/页脚保留区、核对字号实测值 |
@@ -39,6 +50,7 @@ description: Translate technical books or slide PDFs into native Chinese LaTeX P
 | [scripts/check_slide_pdf.py](scripts/check_slide_pdf.py) | slide 技术检查：页数/尺寸/栅格图/字体嵌入/越界/必需字符 |
 | [scripts/render_review_sheets.py](scripts/render_review_sheets.py) | 生成视觉审核用的接触表与高倍页图 + 绑定哈希的 manifest |
 | [scripts/nf.cmd](scripts/nf.cmd) | book 引擎入口（build/qa/release 等） |
+| [scripts/translation_state.py](scripts/translation_state.py) | 长文档调度：`init / plan / brief / record / verify`；区分重新翻译、重建与可复用草稿，不授予 PDF 发布状态 |
 
 ## 先锁定交付形态
 
@@ -85,12 +97,12 @@ description: Translate technical books or slide PDFs into native Chinese LaTeX P
    `nf.cmd redraw --project "项目目录" --spec "图形规范.json" --name f12-native` 支持 xy_plot、flowchart、tikz、chemfig，生成可编辑绘图 TeX、真矢量 PDF 与来源/代码指纹。数值图用原始数据或明示精度的数字化数据；必要时先读引擎 `engine/redraw.py` 的规范，禁止重绘时重采样未知随机数据。
 5. `nf.cmd build --project "项目目录"`，再 `nf.cmd qa --project "项目目录"`。修复真实错误后重编译；只重做失败内容，复用未变证据与资产。不要用“XeLaTeX 编译成功”证明翻译准确。随后跑排版几何检查：
    ```powershell
-   python scripts/check_typography.py --pdf "项目\build\main.pdf" --mode book --report "项目\qa\typo.md"
+   python scripts/check_typography.py --pdf "项目\out\main.pdf" --mode book --report "项目\qa\typo.md"
    ```
 6. 对照全部授权源页，检查译文、公式条件/上下标/积分界限、表格每个单元格、图号及脚注。看全部实际输出页，核验字号、溢出、浮动体和留白。按照 QA 生成的 review 模板填写当前指纹、完整源页/输出页清单、实际完成的检查、reviewer 和 issues。范围内外混在一个抽取 block 时，复核 source_notes 的原文片段。
 7. **纯视觉审核**（不通过不得交付）：按 [visual-audit.md](references/visual-audit.md) 生成接触表与高倍页图，逐对象核对，产出绑定当前 PDF 哈希的审查记录。
    ```powershell
-   python scripts/render_review_sheets.py --pdf "项目\build\main.pdf" --out "项目\qa\review" `
+   python scripts/render_review_sheets.py --pdf "项目\out\main.pdf" --out "项目\qa\review" `
      --hi-res-pages "<本次高风险页>" --hi-res-zoom 3 --poppler-dpi 144
    ```
 8. `nf.cmd release --project "项目目录"`。有 unresolved、未覆盖来源、错误图形类型、编译/原生检查失败、缺页复核、缺视觉审核或过期指纹时均不得发布。交付 PDF、可编译 TeX 包及来源/质量报告，说明真实验证范围；不能承诺未测试的全书或任意扫描稿质量。放行判据与报告必备字段见 [门禁与证明边界](references/workflow-gates.md)。
@@ -100,7 +112,7 @@ description: Translate technical books or slide PDFs into native Chinese LaTeX P
 > **开工前必做**：读 [课件排雷清单](references/slide-pitfalls.md)；坐标系方向**先用 3 行实验确定**（画 y=10/50/90，看哪条在页顶），禁止靠直觉。
 
 1. 先读 [slide-native-pdf.md](references/slide-native-pdf.md)（页级几何、输出链、单位铁律、失败定位表）与 [slide-worker-contract.md](references/slide-worker-contract.md)（worker 合同与自提示）。
-2. 锁定 `slides_preserve`：保留源页序、比例、标题带、图文分组与课件式留白。一源页 = 一输出页，用 `\clearpage` 显式分页。几何与字号按 [cover-and-geometry.md](references/cover-and-geometry.md) §2 的毫米合同，**不要套教材流水版式**。
+2. 锁定 `slides_preserve`：保留源页序、比例、标题带、图文分组与课件式留白。默认一源页 = 一输出页，用 `\clearpage` 显式分页；用户明确要求拆页、合页或新增封面时，先登记实际页对应与新增内容，再按 [slide-native-pdf.md](references/slide-native-pdf.md) 的支持边界执行。几何与字号按 [cover-and-geometry.md](references/cover-and-geometry.md) §2 的毫米合同，**不要套教材流水版式**。
 3. 数学直接走 XeLaTeX 原生数学 + TikZ 矢量图。**不要自写 LaTeX parser、字形盒或数学 SVG 排版器**；不要走"数学 → SVG → 逐字形重建 PPT → 另一渲染器"的链。需要 PPTX 时另行测试 presentation 引擎对公式的支持。
 4. 保留课件外观时，反馈工具需先校准：整页出现同倍放大/裁切，先做无文字无公式的四边标记最小样张，对比真实导出的 PDF。已知工作绕过是 `PPTX convert → 实际 PDF → render PDF`（同 CLI 的 PDFium 分支正常），记录 `backend=pdfium`；**不要为迁就未校准的预览器缩放内容**。
 5. 画图与摆标注时按 [figure-craft.md](references/figure-craft.md)：标注必须与所指对象建立可见联系（引线对准特征点 / 紧邻 / 跨距两端落在特征点）；表示宽高的虚线两端要落到基准轴。
@@ -120,7 +132,7 @@ description: Translate technical books or slide PDFs into native Chinese LaTeX P
 
 资源约束按 [门禁与证明边界](references/workflow-gates.md) §6 执行：空闲物理内存低于 1 GiB 时暂停本地重活，只做非破坏性回收，保护 harness/编辑器/VPN/SSH/安全软件等白名单进程；不得为过 preflight 降低阈值，不得把降低后的阈值下发 worker。
 
-长书按小节分派独立 chunks，监工按顺序使用引擎 `scripts/merge_chunks.py` 合并；执行前读 `docs/large-book.md`。共享 content.json、assets.json 与模板不能由多个 worker 同时改写。
+长书按完整语义小节分派独立 chunks，监工先核查当前工作包状态，再按清单阅读顺序使用引擎 `scripts/merge_chunks.py` 合并；执行前读 [translation-orchestration.md](references/translation-orchestration.md) 和引擎 `docs/large-book.md`。不按字符数硬切公式、表格、证明或代码。本块术语全部保留，邻居上下文只读；作用域冲突由监工回源判断。共享 content.json、assets.json、术语表、run state、模板和审查文件都由主控单写。
 
 覆盖检查只证明证据被分配，不能自动证明译文不遗漏。原生对象检查只证明 PDF/TeX 表示，不替代内容校对。保持 compiled、technical_pass、reviewed、released 的区别。完整证明边界见 [门禁与证明边界](references/workflow-gates.md) §1。
 

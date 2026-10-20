@@ -1,6 +1,7 @@
 # 原生中文教材转换 · 移植包
 
 > **归档说明**：这是原始 zip 包（`dsh-native-textbook-pack`）的 README，保留作历史参考。
+> 2026-10-20 更正：下文降低内存阈值的旧示例已经撤销，当前引擎硬底线为 1 GiB；执行规则以 [FAQ](FAQ.md#内存门禁) 和现行 skill 为准。
 > 本 GitHub 仓库已做如下改动：`examples/project-skeleton/` 换成合成样张；历史路径 `out\main.pdf`
 > 统一修正为 `build\main.pdf`；`XELATEX_LEGACY` 改为可选环境变量 `NF_XELATEX_LEGACY`；补充了
 > 官方 DSH 下载地址与第三方许可声明。安装与使用请以根目录 [README.md](../README.md) 和

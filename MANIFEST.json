@@ -1,10 +1,10 @@
 {
  "name": "dsh-native-textbook-pack",
- "generated_at": "2026-10-20T14:29:15",
+ "generated_at": "2026-10-20T20:46:10",
  "hash_mode": "sha256-lf-normalized",
- "file_count": 245,
- "total_bytes": 29795975,
- "total_mb": 28.42,
+ "file_count": 256,
+ "total_bytes": 29914476,
+ "total_mb": 28.53,
  "split_limit_mb": 500.0,
  "parts": [
   {
@@ -23,10 +23,12 @@
     "build/make_manifest.py",
     "build/make_transcripts.py",
     "ci/github-actions-verify.yml",
+    "docs/ARCHITECTURE-UPGRADE.md",
     "docs/DEPENDENCIES.md",
     "docs/FAQ.md",
     "docs/INSTALL.md",
     "docs/ORIGINAL-PACK-README.md",
+    "docs/UPGRADE-VALIDATION.md",
     "docs/WORKFLOW.md",
     "engine/PORTING.md",
     "engine/native-forge/AGENTS.md",
@@ -108,6 +110,8 @@
     "engine/native-forge/third_party/qr/zxingcpp/zxingcpp.pyi",
     "examples/README.md",
     "examples/commands.ps1",
+    "examples/orchestration-smoke.md",
+    "examples/orchestration_smoke.py",
     "examples/project-skeleton/README.md",
     "examples/project-skeleton/assets.json",
     "examples/project-skeleton/content.json",
@@ -163,10 +167,12 @@
     "skills/native-textbook/assets/review-examples/compare-p05-waveforms.png",
     "skills/native-textbook/assets/review-examples/compare-p15-ode.png",
     "skills/native-textbook/assets/slide-template.tex",
+    "skills/native-textbook/references/bitmap-math-sources.md",
     "skills/native-textbook/references/chinese-typography.md",
     "skills/native-textbook/references/cover-and-geometry.md",
     "skills/native-textbook/references/figure-craft.md",
     "skills/native-textbook/references/first-draft-and-polish.md",
+    "skills/native-textbook/references/front-matter-and-clean-sources.md",
     "skills/native-textbook/references/layout-and-polish.md",
     "skills/native-textbook/references/scanned-source-repair.md",
     "skills/native-textbook/references/slide-native-pdf.md",
@@ -174,6 +180,7 @@
     "skills/native-textbook/references/slide-worker-contract.md",
     "skills/native-textbook/references/source-preflight.md",
     "skills/native-textbook/references/stopping-point-example.md",
+    "skills/native-textbook/references/translation-orchestration.md",
     "skills/native-textbook/references/upgrade-notes-20261014.md",
     "skills/native-textbook/references/visual-audit.md",
     "skills/native-textbook/references/worker-contract.md",
@@ -225,6 +232,7 @@
     "skills/native-textbook/scripts/scan_repair/merge_workers.py",
     "skills/native-textbook/scripts/scan_repair/run_build_loop.py",
     "skills/native-textbook/scripts/scan_repair/run_pipeline.py",
+    "skills/native-textbook/scripts/translation_state.py",
     "skills/office-files/SKILL.md",
     "skills/office-files/references/tool-network.md",
     "skills/scientific-visuals/SKILL.md",
@@ -252,6 +260,9 @@
     "skills/skill-network/SKILL.md",
     "skills/skill-network/references/extension-protocol.md",
     "skills/skill-network/references/skill-map.md",
+    "tests/test_orchestration_integration.py",
+    "tests/test_slide_spacing.py",
+    "tests/test_translation_state.py",
     "verify-pack.ps1",
     "verify_pack.py",
     "wheels/pymupdf-1.28.0-cp310-abi3-win_amd64.whl"
@@ -301,18 +312,18 @@
   },
   {
    "path": "NOTICE.md",
-   "bytes": 3076,
-   "sha256": "00016c82d4e136f7231be413dab021d8f12117982437991d4ff30fe4a229124f"
+   "bytes": 3657,
+   "sha256": "a05fe2e98462de13da47e38519f9ec6eefe4a6f17072a440d3f39e547c108bd5"
   },
   {
    "path": "README.en.md",
-   "bytes": 3880,
-   "sha256": "ac1cd72832167c45d671176871479f5fd0910b3678f08a185d834c9cc08ad953"
+   "bytes": 4357,
+   "sha256": "dc84bf82ed8df90129ee021415d489b00369c0520e39a41af11c72a5ffe2d071"
   },
   {
    "path": "README.md",
-   "bytes": 18773,
-   "sha256": "d62f639d2ca77fb8f3be07e6ad295ae67b5e08ac8d5771a7f973f89f706a7cf0"
+   "bytes": 19383,
+   "sha256": "367dc2698db9dda94780d8c3f51566bc22b2d024ccdc1bcb29c25e34116f0351"
   },
   {
    "path": "build/README.md",
@@ -331,8 +342,13 @@
   },
   {
    "path": "ci/github-actions-verify.yml",
-   "bytes": 746,
-   "sha256": "31756d95fe123fe0786c418efa7d00bab2bf42e9f978088e96ec2cd02bef4274"
+   "bytes": 899,
+   "sha256": "4161bfb18ff2022cdd81b1644a5a86017723e435f777b4ca82723a5dfe5e215c"
+  },
+  {
+   "path": "docs/ARCHITECTURE-UPGRADE.md",
+   "bytes": 4197,
+   "sha256": "486a2749eabb7f6172a515c297e64d014aee729e25080c9e33ccdfacf8fb2037"
   },
   {
    "path": "docs/DEPENDENCIES.md",
@@ -341,8 +357,8 @@
   },
   {
    "path": "docs/FAQ.md",
-   "bytes": 15807,
-   "sha256": "2093ee7093e7b60a8baf1d77c13e24b6eedbb049fa152fc30bfd3403436a3544"
+   "bytes": 15918,
+   "sha256": "9b8523d5fde45a982241b59be6daf7f8e93df135980f6f5f6b689f99c2d1f1e7"
   },
   {
    "path": "docs/INSTALL.md",
@@ -351,13 +367,18 @@
   },
   {
    "path": "docs/ORIGINAL-PACK-README.md",
-   "bytes": 9271,
-   "sha256": "81043a5165ee88991734e2c8e523317a1719d68731075d57e9619406b5248076"
+   "bytes": 9446,
+   "sha256": "ef21668f10a5f1e24386f27e82d14c363ae1e73c5b269712ef6d22104d490ff9"
+  },
+  {
+   "path": "docs/UPGRADE-VALIDATION.md",
+   "bytes": 5029,
+   "sha256": "d852d28dd1f730401f77dcc18824f750dc8741979beae61165c9f77883d2a404"
   },
   {
    "path": "docs/WORKFLOW.md",
-   "bytes": 24453,
-   "sha256": "a7b136cfa24ee23c71ca78ae53ae0ec5981b9edce27482c95b430108a0fd5f2e"
+   "bytes": 24961,
+   "sha256": "b5f1dd0fed198e0da121bb3b0dc1a0bacccaa3e79f8880302ff4ea23787fdffd"
   },
   {
    "path": "engine/PORTING.md",
@@ -431,8 +452,8 @@
   },
   {
    "path": "engine/native-forge/engine/native_forge.py",
-   "bytes": 129200,
-   "sha256": "eea0526e8efe4ad0de51f1cbde4570de31db3642421337a1623bd8d923f57af6"
+   "bytes": 129091,
+   "sha256": "b92a90067946454a217d01a22d54c3f257cb077188d1376197110b753ffc0c73"
   },
   {
    "path": "engine/native-forge/engine/native_shading_qa.py",
@@ -681,8 +702,8 @@
   },
   {
    "path": "engine/native-forge/tests/test_native_forge.py",
-   "bytes": 43113,
-   "sha256": "e07497c01102849c02f696e2d12b524d1596250101f0f78c3af810138b15e23f"
+   "bytes": 43125,
+   "sha256": "77f0046a6f35ca5e5f2a9eb9bcc012b9eca7cbc76f34a147a983b3a101e29041"
   },
   {
    "path": "engine/native-forge/tests/test_preflight.py",
@@ -758,6 +779,16 @@
    "path": "examples/commands.ps1",
    "bytes": 3368,
    "sha256": "3a0cf8de4e346a6d6ba2e407e436e2065750c3c3ceae1ea9ced4f72dfc451ca1"
+  },
+  {
+   "path": "examples/orchestration-smoke.md",
+   "bytes": 1426,
+   "sha256": "8a898328d78a368e68e0197775fee8789b8a83a012f71d0897d739d833c17ad2"
+  },
+  {
+   "path": "examples/orchestration_smoke.py",
+   "bytes": 5394,
+   "sha256": "35b55457fd5089692af35207d5c249e625646cea22294f5843e1a8aae6caf447"
   },
   {
    "path": "examples/project-skeleton/README.md",
@@ -1006,13 +1037,13 @@
   },
   {
    "path": "skills/native-textbook/SKILL.md",
-   "bytes": 16832,
-   "sha256": "dc961c1dd6a62891331a5452f725f823a15b579b364fb668838b627e87372b72"
+   "bytes": 19467,
+   "sha256": "4951478818f693a5c1dce886052a62d8e2f567b40fe38f1bc2bf96332bd0bb2d"
   },
   {
    "path": "skills/native-textbook/agents/openai.yaml",
-   "bytes": 365,
-   "sha256": "7b3a5fe8d6a48acb5b873d9ea62da55a4078364c4f086377456701fffc380ada"
+   "bytes": 493,
+   "sha256": "16db9b71cdb0d5f82f37c1f299e5aa530ec8b383ba8f5bc7b37af986ecdf18cf"
   },
   {
    "path": "skills/native-textbook/assets/review-examples/compare-p03-matrix.png",
@@ -1031,8 +1062,13 @@
   },
   {
    "path": "skills/native-textbook/assets/slide-template.tex",
-   "bytes": 4519,
-   "sha256": "72e4a155228daad76f007dac0b312e6989879f7230c4e9f8e6d5a2e53c228cef"
+   "bytes": 4781,
+   "sha256": "1b9436dc230f6308a872d4fee691f7f76298f210a823160bd887b681f2caae7a"
+  },
+  {
+   "path": "skills/native-textbook/references/bitmap-math-sources.md",
+   "bytes": 9890,
+   "sha256": "e516a70a21f232171a772dc6882b6f4e740ed29b6fb055ea70dfbe6ef2802213"
   },
   {
    "path": "skills/native-textbook/references/chinese-typography.md",
@@ -1041,18 +1077,23 @@
   },
   {
    "path": "skills/native-textbook/references/cover-and-geometry.md",
-   "bytes": 14678,
-   "sha256": "6b3dbe9ca526c362de7b291d60725fe8e375b741860206c9df8257b132beaa0d"
+   "bytes": 16617,
+   "sha256": "9101cf00b6db2e79aa9ceaa4a75689f3072da5948e022358ae9b006e01ebd078"
   },
   {
    "path": "skills/native-textbook/references/figure-craft.md",
-   "bytes": 24424,
-   "sha256": "f85cd33fe03348e7d7c4db638f8fb3ecda8e10e24229f16c23e00de12b066bda"
+   "bytes": 24762,
+   "sha256": "818b4175d1b02438ce265ffde447570cd9589de3d1c44536465a4bb82202fe85"
   },
   {
    "path": "skills/native-textbook/references/first-draft-and-polish.md",
    "bytes": 13448,
    "sha256": "9be9ffb7fd0af8a155deedcb8b8b07cebdeb92e185f006ec5cbedaf69f40de22"
+  },
+  {
+   "path": "skills/native-textbook/references/front-matter-and-clean-sources.md",
+   "bytes": 6280,
+   "sha256": "b172518c5f1ee32bb30bfcc25e5ae736298f403b8092b845a358d0972a7c13a2"
   },
   {
    "path": "skills/native-textbook/references/layout-and-polish.md",
@@ -1061,13 +1102,13 @@
   },
   {
    "path": "skills/native-textbook/references/scanned-source-repair.md",
-   "bytes": 9186,
-   "sha256": "ee47c14aa988d262c5219c98074a54e208565c5c09a3ac93d9b1c2a3220335ee"
+   "bytes": 9898,
+   "sha256": "67fe85b019d4eb91f5706587adce3da3f5e2bf16e27fab3fa3edbf8bb21b8629"
   },
   {
    "path": "skills/native-textbook/references/slide-native-pdf.md",
-   "bytes": 11575,
-   "sha256": "7a387707a52165bdae858fa00fa408f1afc628ad41f1f1970797b3778b505375"
+   "bytes": 12911,
+   "sha256": "7736c16069a5993d92afe44d2201e8a2dc862fdeb95f94644ef8c2634bc44445"
   },
   {
    "path": "skills/native-textbook/references/slide-pitfalls.md",
@@ -1076,18 +1117,23 @@
   },
   {
    "path": "skills/native-textbook/references/slide-worker-contract.md",
-   "bytes": 4529,
-   "sha256": "caa8a83369a727afac8a5f2276e2ba38112af2d2ebf1564f19363a4bb934f5d4"
+   "bytes": 4976,
+   "sha256": "a8cff37453953f176ad528ee63d9a3a251279a1aee4dadd54a591187026f197c"
   },
   {
    "path": "skills/native-textbook/references/source-preflight.md",
-   "bytes": 1741,
-   "sha256": "c3fca65ce3a3b485e97cf2b5652d80cb9f4ad99e136ec934b5790ae1167f85da"
+   "bytes": 2040,
+   "sha256": "c6c147cf3c3ab35a192012eadf9486bd71463890bf911029b25c74f48184099a"
   },
   {
    "path": "skills/native-textbook/references/stopping-point-example.md",
    "bytes": 3992,
    "sha256": "eae4867da6d8c15e8da3a6217cd5e4d1613d8604fe87a9a33093997efb272326"
+  },
+  {
+   "path": "skills/native-textbook/references/translation-orchestration.md",
+   "bytes": 11828,
+   "sha256": "f14fb357bbb244ce6e8017af11470f020062104c50a06c9ddae1054687eb45a0"
   },
   {
    "path": "skills/native-textbook/references/upgrade-notes-20261014.md",
@@ -1096,18 +1142,18 @@
   },
   {
    "path": "skills/native-textbook/references/visual-audit.md",
-   "bytes": 12558,
-   "sha256": "d0862893ccbae67594651c4254ad7885724a5330fe6c8a31374c25738e56455b"
+   "bytes": 12727,
+   "sha256": "63f84224db76e5d50a0b49223e9d9b057a79cce7fee1130d6f01f1f166db4989"
   },
   {
    "path": "skills/native-textbook/references/worker-contract.md",
-   "bytes": 4703,
-   "sha256": "dad36dd004ca8451bd10956f088409a454cb72e802ff4f98b2167b287d7daa41"
+   "bytes": 5552,
+   "sha256": "4d6fcb97a10c65ad893c3f25326b507a6404a7019b53bc7572f44553ce61cb18"
   },
   {
    "path": "skills/native-textbook/references/workflow-gates.md",
-   "bytes": 10684,
-   "sha256": "82f9470e7a3dd57909bf58fefac7dcca267e26c05b77d8b174819c5320ace357"
+   "bytes": 15128,
+   "sha256": "d6bf82250ee7153c035f131f9a802c7124f0358809ca94d8064534d35d357830"
   },
   {
    "path": "skills/native-textbook/scripts/check_slide_pdf.py",
@@ -1116,8 +1162,8 @@
   },
   {
    "path": "skills/native-textbook/scripts/check_slide_spacing.py",
-   "bytes": 8325,
-   "sha256": "6e68ae242aff61d28718987953f444897af92ef0c144611037b3ef2a59f362a9"
+   "bytes": 9254,
+   "sha256": "a5ad9066459882c6039cb3f86157a55adb7485aef3e34e1bbca03a9fc22f8c21"
   },
   {
    "path": "skills/native-textbook/scripts/check_typography.py",
@@ -1345,14 +1391,19 @@
    "sha256": "185858ba093ec5ead8c6d75beb52bd698755f282547214acd020a1bda0acd550"
   },
   {
+   "path": "skills/native-textbook/scripts/translation_state.py",
+   "bytes": 22279,
+   "sha256": "aab97f161065dc3b38d5b3946a0371e3ff21e3492368ab32c7b94510f7e95fd0"
+  },
+  {
    "path": "skills/office-files/SKILL.md",
    "bytes": 1463,
    "sha256": "29caa625810cfe595f0234760d796d5388dc30c5dbdc69ea8be199e4a73c2128"
   },
   {
    "path": "skills/office-files/references/tool-network.md",
-   "bytes": 1761,
-   "sha256": "5f126fc9f6c0dc13893d95dc807f570214737569bd8c125a75ce210ac0fef661"
+   "bytes": 1941,
+   "sha256": "2a44cb2075693c754b0fc800aa6dd355df2984f20e8b3dd1059f004de31b0df4"
   },
   {
    "path": "skills/scientific-visuals/SKILL.md",
@@ -1476,8 +1527,23 @@
   },
   {
    "path": "skills/skill-network/references/skill-map.md",
-   "bytes": 9044,
-   "sha256": "1caa504197b4db1e33e78c6821e42a890a8ab49ccbd702ba929dbe3f9f602f50"
+   "bytes": 9207,
+   "sha256": "9cb24cd9ce24ea8d018aef8e0cf3905d84cc2d71b3b8e8348ef20f298193fea1"
+  },
+  {
+   "path": "tests/test_orchestration_integration.py",
+   "bytes": 11755,
+   "sha256": "80d14cbc7e16aeb139192b2e0c7299ee0fd1882de987a27dbea6091f6f6741b4"
+  },
+  {
+   "path": "tests/test_slide_spacing.py",
+   "bytes": 2726,
+   "sha256": "a34d67d2a03fd46776d80378b3c69be1e443e0fbe540fd843d2f11c158977571"
+  },
+  {
+   "path": "tests/test_translation_state.py",
+   "bytes": 20349,
+   "sha256": "4826596231fd90794858e3c101334ad2933ac26ee55377624a0ddc44dffa850d"
   },
   {
    "path": "verify-pack.ps1",

@@ -229,22 +229,23 @@ class TestPureHelpers(unittest.TestCase):
         available = nf.available_physical_memory()
         self.assertTrue(available is None or available > 0)
 
-    def test_ram_floor_override_is_clamped(self):
+    def test_ram_floor_override_cannot_relax_hard_floor(self):
         default = nf.RAM_MINIMUM
         with mock.patch.dict("os.environ", {"NF_RAM_FLOOR_MIB": "700"}):
-            self.assertEqual(nf.configured_ram_minimum(), 700 << 20)
-            # The relaxed floor still halts below the clamped value, and the default guard
-            # is unchanged when the caller states an explicit minimum.
+            self.assertEqual(nf.configured_ram_minimum(), default)
             with self.assertRaises(nf.EngineError):
                 nf.ensure_ram(reader=lambda: 600 << 20)
-            self.assertEqual(nf.ensure_ram(reader=lambda: 800 << 20), 800 << 20)
+            with self.assertRaises(nf.EngineError):
+                nf.ensure_ram(reader=lambda: 800 << 20)
             with self.assertRaises(nf.EngineError):
                 nf.ensure_ram(reader=lambda: 800 << 20, minimum=default)
-        # Never below the hard floor and never above the default.
+            with self.assertRaises(nf.EngineError):
+                nf.ensure_ram(reader=lambda: 800 << 20, minimum=512 << 20)
+        # Lower requests are clamped; higher requests remain stricter.
         with mock.patch.dict("os.environ", {"NF_RAM_FLOOR_MIB": "1"}):
             self.assertEqual(nf.configured_ram_minimum(), nf.RAM_MINIMUM_FLOOR)
         with mock.patch.dict("os.environ", {"NF_RAM_FLOOR_MIB": "99999"}):
-            self.assertEqual(nf.configured_ram_minimum(), default)
+            self.assertEqual(nf.configured_ram_minimum(), 99999 << 20)
         with mock.patch.dict("os.environ", {"NF_RAM_FLOOR_MIB": "not-a-number"}):
             self.assertEqual(nf.configured_ram_minimum(), default)
 

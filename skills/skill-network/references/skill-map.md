@@ -68,14 +68,14 @@ Tool nodes:
 - plugin `documents`
 - plugin `presentations`
 - plugin `spreadsheets`
-- `native-textbook`: direct Codex entry at `C:\Users\ltllt\.codex\skills\native-textbook\SKILL.md`; book mode for continuous textbooks, slide mode for native PDFs preserving PPT style; editable PPTX stays with `presentations`.
+- `native-textbook`: [direct entry](../../native-textbook/SKILL.md); native Chinese books or slide PDFs with semantic work packages, scoped terms, resumable state, native figures/covers and source-to-render acceptance; editable PPTX stays with `presentations`.
 
 Common flows:
 
 - `pdf-to-report`: pdf -> markitdown -> docx
 - `data-to-deck`: xlsx -> chart/table analysis -> pptx
 - `doc-redline`: docx -> render/verify -> comment or tracked changes
-- `native-textbook`: source PDF evidence -> bounded DeepSeek translation/TeX -> vector/native assets -> ElegantBook -> semantic/visual review -> release
+- `native-textbook`: source evidence -> document/risk plan -> semantic packages and scoped terminology -> bounded DeepSeek translation/TeX -> verified draft integration -> native figures/covers -> ElegantBook -> semantic/typographic/visual review -> independent rebuild and release
 - `native-slide-pdf`: source slide evidence -> page/geometry contract -> bounded DeepSeek slide workers -> direct XeLaTeX -> actual PDF and all-page review -> independent release
 
 ### `scientific-visuals`

@@ -30,6 +30,10 @@
 - **LibreOffice**——仅在 `.pptx` 预览/转换时需要
 - **Python 3.10+**（PSF License）
 
+## 设计来源：translate-book
+
+2026-10-20 的长文档编排升级借鉴 [deusyu/translate-book](https://github.com/deusyu/translate-book/tree/a663b1b4f1e625b286cd2a81dffd16571e6f2aa2) 的来源指纹、分块清单、只读邻居、术语反馈与主控单写状态设计。研究版本为 `a663b1b4f1e625b286cd2a81dffd16571e6f2aa2`，该项目采用 MIT，Copyright 2025 Rainman。新增状态工具为独立实现，没有复制其源码；本说明记录架构来源，不改变上列组件许可。取舍见 [docs/ARCHITECTURE-UPGRADE.md](docs/ARCHITECTURE-UPGRADE.md)。
+
 ## 会话记录说明
 
 `sessions/` 是作者本机真实会话的脱敏转换记录，保留了当时的绝对路径（如 `C:\Users\...`、`E:\...`）作为历史记录。它们不是配置，也不包含 API 密钥；若你不想公开自己的运行记录，直接删除该目录即可，不影响安装与使用。
