@@ -1,0 +1,12 @@
+{
+  "blocks": [],
+  "exclusions": [],
+  "expectations": {
+    "equation_tags": [],
+    "figure_count": 0,
+    "required_strings": [],
+    "table_count": 0
+  },
+  "title": "Native redraw integration",
+  "unresolved": []
+}

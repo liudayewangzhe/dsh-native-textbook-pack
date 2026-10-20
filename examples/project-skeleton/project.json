@@ -1,0 +1,23 @@
+{
+  "pages": [
+    1,
+    2
+  ],
+  "schema_version": 1,
+  "source": {
+    "path": "source.pdf",
+    "sha256": "b0f64ad44771774cdf033049382b2a8bb5f4aba8d2c2322bc840f4477d88bfea"
+  },
+  "status": "draft",
+  "templates": {
+    "elegantbook.cls": {
+      "path": "<native-forge>/templates/elegantbook.cls",
+      "sha256": "d2cdb802b3de46b1d659d1a8eb36979aecd761402d3e95296936f433f97549eb"
+    },
+    "nativeforge.sty": {
+      "path": "<native-forge>/templates/nativeforge.sty",
+      "sha256": "59a1e9e9f68b9ceb927422afce60781dd0ee30d9b5cca30c9940e413ed44711f"
+    }
+  },
+  "title": "合成示例项目"
+}

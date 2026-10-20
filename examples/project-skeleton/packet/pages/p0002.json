@@ -1,0 +1,59 @@
+{
+  "blocks": [
+    {
+      "bbox": [
+        72.0,
+        77.0,
+        202.0,
+        92.6
+      ],
+      "id": "p0002-b0000",
+      "page": 2,
+      "text": "1.2  第二页示例"
+    },
+    {
+      "bbox": [
+        72.0,
+        109.0,
+        435.0,
+        122.2
+      ],
+      "id": "p0002-b0001",
+      "page": 2,
+      "text": "第二页用于演示多页项目骨架：每个物理页都有独立的对象清单与渲染图。"
+    },
+    {
+      "bbox": [
+        72.0,
+        139.0,
+        578.0,
+        152.2
+      ],
+      "id": "p0002-b0002",
+      "page": 2,
+      "text": "真实项目中，内容由 worker 按语义小节写入 content.json，再经合并与构建。"
+    }
+  ],
+  "fonts": [
+    {
+      "basefont": "Heiti",
+      "ext": "n/a",
+      "type": "Type0"
+    }
+  ],
+  "height": 842.0,
+  "images": [],
+  "mediabox": [
+    0.0,
+    0.0,
+    595.0,
+    842.0
+  ],
+  "page": 2,
+  "page_sha256": "dd1c20020df3da54e6fd0d9f11a9c6b26556869c8e07c6dcfe8770275dddfa7f",
+  "raster_occurrences": 0,
+  "rotation": 0,
+  "vector_path_count": 0,
+  "visible_raster_occurrences": 0,
+  "width": 595.0
+}

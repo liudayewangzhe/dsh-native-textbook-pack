@@ -1,0 +1,1498 @@
+{
+ "name": "dsh-native-textbook-pack",
+ "generated_at": "2026-10-20T13:52:21",
+ "hash_mode": "sha256-lf-normalized",
+ "file_count": 245,
+ "total_bytes": 29795071,
+ "total_mb": 28.41,
+ "split_limit_mb": 500.0,
+ "parts": [
+  {
+   "index": 1,
+   "files": [
+    ".gitattributes",
+    ".gitignore",
+    "LICENSE",
+    "LICENSES/AGPL-3.0.txt",
+    "LICENSES/Apache-2.0.txt",
+    "LICENSES/LPPL-1.3c.txt",
+    "NOTICE.md",
+    "README.en.md",
+    "README.md",
+    "build/README.md",
+    "build/make_manifest.py",
+    "build/make_transcripts.py",
+    "ci/github-actions-verify.yml",
+    "docs/DEPENDENCIES.md",
+    "docs/FAQ.md",
+    "docs/INSTALL.md",
+    "docs/ORIGINAL-PACK-README.md",
+    "docs/WORKFLOW.md",
+    "engine/PORTING.md",
+    "engine/native-forge/AGENTS.md",
+    "engine/native-forge/PACKAGE.md",
+    "engine/native-forge/README.md",
+    "engine/native-forge/docs/design.md",
+    "engine/native-forge/docs/document-plan.md",
+    "engine/native-forge/docs/large-book.md",
+    "engine/native-forge/docs/layout.md",
+    "engine/native-forge/docs/preflight.md",
+    "engine/native-forge/docs/skill-validation.json",
+    "engine/native-forge/docs/worker-contract.md",
+    "engine/native-forge/docs/重构分析与验收报告.md",
+    "engine/native-forge/engine/deepseek_redraw_task.txt",
+    "engine/native-forge/engine/deepseek_task.txt",
+    "engine/native-forge/engine/native_forge.py",
+    "engine/native-forge/engine/native_shading_qa.py",
+    "engine/native-forge/engine/redraw.py",
+    "engine/native-forge/engine/source_pdf_objects.py",
+    "engine/native-forge/nf.cmd",
+    "engine/native-forge/scripts/merge_chunks.py",
+    "engine/native-forge/scripts/plan_document.py",
+    "engine/native-forge/scripts/preflight_pdf.py",
+    "engine/native-forge/scripts/scaffold_inventory.py",
+    "engine/native-forge/templates/License",
+    "engine/native-forge/templates/elegantbook.cls",
+    "engine/native-forge/templates/nativeforge.sty",
+    "engine/native-forge/tests/.integration/chem-real.json",
+    "engine/native-forge/tests/.integration/chem-real.png",
+    "engine/native-forge/tests/.integration/flow-real.json",
+    "engine/native-forge/tests/.integration/flow-real.png",
+    "engine/native-forge/tests/.integration/project/assets.json",
+    "engine/native-forge/tests/.integration/project/content.json",
+    "engine/native-forge/tests/.integration/project/packet/packet.json",
+    "engine/native-forge/tests/.integration/project/packet/pages/p0001.json",
+    "engine/native-forge/tests/.integration/project/packet/pages/p0001.png",
+    "engine/native-forge/tests/.integration/project/project.json",
+    "engine/native-forge/tests/.integration/project/redraw/chem-real/figure.aux",
+    "engine/native-forge/tests/.integration/project/redraw/chem-real/figure.log",
+    "engine/native-forge/tests/.integration/project/redraw/chem-real/figure.pdf",
+    "engine/native-forge/tests/.integration/project/redraw/chem-real/figure.tex",
+    "engine/native-forge/tests/.integration/project/redraw/chem-real/pass-1.stdout.txt",
+    "engine/native-forge/tests/.integration/project/redraw/chem-real/pass-2.stdout.txt",
+    "engine/native-forge/tests/.integration/project/redraw/chem-real/spec.json",
+    "engine/native-forge/tests/.integration/project/redraw/flow-real/figure.aux",
+    "engine/native-forge/tests/.integration/project/redraw/flow-real/figure.log",
+    "engine/native-forge/tests/.integration/project/redraw/flow-real/figure.pdf",
+    "engine/native-forge/tests/.integration/project/redraw/flow-real/figure.tex",
+    "engine/native-forge/tests/.integration/project/redraw/flow-real/pass-1.stdout.txt",
+    "engine/native-forge/tests/.integration/project/redraw/flow-real/pass-2.stdout.txt",
+    "engine/native-forge/tests/.integration/project/redraw/flow-real/spec.json",
+    "engine/native-forge/tests/.integration/project/redraw/xy-real/figure.aux",
+    "engine/native-forge/tests/.integration/project/redraw/xy-real/figure.log",
+    "engine/native-forge/tests/.integration/project/redraw/xy-real/figure.pdf",
+    "engine/native-forge/tests/.integration/project/redraw/xy-real/figure.tex",
+    "engine/native-forge/tests/.integration/project/redraw/xy-real/pass-1.stdout.txt",
+    "engine/native-forge/tests/.integration/project/redraw/xy-real/pass-2.stdout.txt",
+    "engine/native-forge/tests/.integration/project/redraw/xy-real/spec.json",
+    "engine/native-forge/tests/.integration/source.pdf",
+    "engine/native-forge/tests/.integration/xy-real.json",
+    "engine/native-forge/tests/.integration/xy-real.png",
+    "engine/native-forge/tests/test_cli_acceptance.py",
+    "engine/native-forge/tests/test_document_plan.py",
+    "engine/native-forge/tests/test_inventory.py",
+    "engine/native-forge/tests/test_layout.py",
+    "engine/native-forge/tests/test_native_forge.py",
+    "engine/native-forge/tests/test_preflight.py",
+    "engine/native-forge/tests/test_redraw.py",
+    "engine/native-forge/tests/verification.json",
+    "engine/native-forge/third_party/qr/zxing_cpp-3.1.1.dist-info/INSTALLER",
+    "engine/native-forge/third_party/qr/zxing_cpp-3.1.1.dist-info/METADATA",
+    "engine/native-forge/third_party/qr/zxing_cpp-3.1.1.dist-info/RECORD",
+    "engine/native-forge/third_party/qr/zxing_cpp-3.1.1.dist-info/REQUESTED",
+    "engine/native-forge/third_party/qr/zxing_cpp-3.1.1.dist-info/WHEEL",
+    "engine/native-forge/third_party/qr/zxing_cpp-3.1.1.dist-info/licenses/LICENSE",
+    "engine/native-forge/third_party/qr/zxingcpp/__init__.py",
+    "engine/native-forge/third_party/qr/zxingcpp/py.typed",
+    "engine/native-forge/third_party/qr/zxingcpp/zxingcpp.pyd",
+    "engine/native-forge/third_party/qr/zxingcpp/zxingcpp.pyi",
+    "examples/README.md",
+    "examples/commands.ps1",
+    "examples/project-skeleton/README.md",
+    "examples/project-skeleton/assets.json",
+    "examples/project-skeleton/content.json",
+    "examples/project-skeleton/packet/packet.json",
+    "examples/project-skeleton/packet/pages/p0001.json",
+    "examples/project-skeleton/packet/pages/p0001.png",
+    "examples/project-skeleton/packet/pages/p0002.json",
+    "examples/project-skeleton/packet/pages/p0002.png",
+    "examples/project-skeleton/project.json",
+    "examples/project-skeleton/source.pdf",
+    "examples/smoke-test.md",
+    "examples/worker-brief-template.md",
+    "install.cmd",
+    "install.ps1",
+    "playbook/01-总览与取舍.md",
+    "playbook/02-环境与依赖.md",
+    "playbook/03-命令速查.md",
+    "playbook/04-踩坑与注意点.md",
+    "playbook/05-会话复盘.md",
+    "playbook/06-示例用法.md",
+    "sessions/01-起始-学习native-textbook并为ME4300搭流水线.md",
+    "sessions/02-把Codex技能接入DSH.md",
+    "sessions/03-从会话zip恢复继续.md",
+    "sessions/04-金融物理-worker起草.md",
+    "sessions/05-经典力学-主控.md",
+    "sessions/06-经典力学-翻译worker.md",
+    "sessions/07-Lecture2-Signals-PPT双版本.md",
+    "sessions/08-worker加监工模式.md",
+    "sessions/09-native-textbook技能升级.md",
+    "sessions/10-计算物理-扫描件主控.md",
+    "sessions/11-计算物理-独立视觉审查.md",
+    "sessions/12-失败排查与续跑.md",
+    "sessions/SKILL-使用统计.md",
+    "sessions/index.md",
+    "skills/README-SKILLS.md",
+    "skills/deepseek-claude-subagent/SKILL.md",
+    "skills/deepseek-claude-subagent/agents/openai.yaml",
+    "skills/deepseek-claude-subagent/scripts/invoke-deepseek-claude.cmd",
+    "skills/deepseek-claude-subagent/scripts/invoke-deepseek-claude.ps1",
+    "skills/diagnose-windows-sandbox-acl/SKILL.md",
+    "skills/diagnose-windows-sandbox-acl/scripts/diagnose-windows-sandbox-acl.ps1",
+    "skills/humanizer-zh/.gitignore",
+    "skills/humanizer-zh/LICENSE",
+    "skills/humanizer-zh/README.md",
+    "skills/humanizer-zh/SKILL.md",
+    "skills/humanizer/AGENTS.md",
+    "skills/humanizer/LICENSE",
+    "skills/humanizer/README.md",
+    "skills/humanizer/SKILL.md",
+    "skills/native-textbook/SKILL.md",
+    "skills/native-textbook/agents/openai.yaml",
+    "skills/native-textbook/assets/review-examples/compare-p03-matrix.png",
+    "skills/native-textbook/assets/review-examples/compare-p05-waveforms.png",
+    "skills/native-textbook/assets/review-examples/compare-p15-ode.png",
+    "skills/native-textbook/assets/slide-template.tex",
+    "skills/native-textbook/references/chinese-typography.md",
+    "skills/native-textbook/references/cover-and-geometry.md",
+    "skills/native-textbook/references/figure-craft.md",
+    "skills/native-textbook/references/first-draft-and-polish.md",
+    "skills/native-textbook/references/layout-and-polish.md",
+    "skills/native-textbook/references/scanned-source-repair.md",
+    "skills/native-textbook/references/slide-native-pdf.md",
+    "skills/native-textbook/references/slide-pitfalls.md",
+    "skills/native-textbook/references/slide-worker-contract.md",
+    "skills/native-textbook/references/source-preflight.md",
+    "skills/native-textbook/references/stopping-point-example.md",
+    "skills/native-textbook/references/upgrade-notes-20261014.md",
+    "skills/native-textbook/references/visual-audit.md",
+    "skills/native-textbook/references/worker-contract.md",
+    "skills/native-textbook/references/workflow-gates.md",
+    "skills/native-textbook/scripts/check_slide_pdf.py",
+    "skills/native-textbook/scripts/check_slide_spacing.py",
+    "skills/native-textbook/scripts/check_typography.py",
+    "skills/native-textbook/scripts/compare_typography.py",
+    "skills/native-textbook/scripts/nf.cmd",
+    "skills/native-textbook/scripts/render_review_sheets.py",
+    "skills/native-textbook/scripts/scan_repair/audit_coverage.py",
+    "skills/native-textbook/scripts/scan_repair/auto_continues.py",
+    "skills/native-textbook/scripts/scan_repair/check_numbering.py",
+    "skills/native-textbook/scripts/scan_repair/clamp_bbox.py",
+    "skills/native-textbook/scripts/scan_repair/detect_partial_pages.py",
+    "skills/native-textbook/scripts/scan_repair/fix_array_cols.py",
+    "skills/native-textbook/scripts/scan_repair/fix_asset_hashes.py",
+    "skills/native-textbook/scripts/scan_repair/fix_asset_names.py",
+    "skills/native-textbook/scripts/scan_repair/fix_bad_json.py",
+    "skills/native-textbook/scripts/scan_repair/fix_bare_figure_blocks.py",
+    "skills/native-textbook/scripts/scan_repair/fix_bbox_shift.py",
+    "skills/native-textbook/scripts/scan_repair/fix_caption_only_figures.py",
+    "skills/native-textbook/scripts/scan_repair/fix_cases_cols.py",
+    "skills/native-textbook/scripts/scan_repair/fix_cdots.py",
+    "skills/native-textbook/scripts/scan_repair/fix_cdots2.py",
+    "skills/native-textbook/scripts/scan_repair/fix_dup_ids.py",
+    "skills/native-textbook/scripts/scan_repair/fix_dup_tags.py",
+    "skills/native-textbook/scripts/scan_repair/fix_dups_and_heading.py",
+    "skills/native-textbook/scripts/scan_repair/fix_empty_heading_tex.py",
+    "skills/native-textbook/scripts/scan_repair/fix_empty_text.py",
+    "skills/native-textbook/scripts/scan_repair/fix_excluded_fields.py",
+    "skills/native-textbook/scripts/scan_repair/fix_fig_trim.py",
+    "skills/native-textbook/scripts/scan_repair/fix_figure_fields.py",
+    "skills/native-textbook/scripts/scan_repair/fix_figure_number2.py",
+    "skills/native-textbook/scripts/scan_repair/fix_figure_tex.py",
+    "skills/native-textbook/scripts/scan_repair/fix_glyphs.py",
+    "skills/native-textbook/scripts/scan_repair/fix_literal_blocks.py",
+    "skills/native-textbook/scripts/scan_repair/fix_literal_text.py",
+    "skills/native-textbook/scripts/scan_repair/fix_nested_math5.py",
+    "skills/native-textbook/scripts/scan_repair/fix_notes_dedup.py",
+    "skills/native-textbook/scripts/scan_repair/fix_numbered_consistency.py",
+    "skills/native-textbook/scripts/scan_repair/fix_object_kind.py",
+    "skills/native-textbook/scripts/scan_repair/fix_overfull.py",
+    "skills/native-textbook/scripts/scan_repair/fix_p118_dup.py",
+    "skills/native-textbook/scripts/scan_repair/fix_text_dup.py",
+    "skills/native-textbook/scripts/scan_repair/gen_pages.py",
+    "skills/native-textbook/scripts/scan_repair/locate_overfull.py",
+    "skills/native-textbook/scripts/scan_repair/make_assets.py",
+    "skills/native-textbook/scripts/scan_repair/merge_workers.py",
+    "skills/native-textbook/scripts/scan_repair/run_build_loop.py",
+    "skills/native-textbook/scripts/scan_repair/run_pipeline.py",
+    "skills/office-files/SKILL.md",
+    "skills/office-files/references/tool-network.md",
+    "skills/scientific-visuals/SKILL.md",
+    "skills/scientific-visuals/references/tool-network.md",
+    "skills/skill-authoring/SKILL.md",
+    "skills/skill-authoring/references/tool-network.md",
+    "skills/skill-creator/LICENSE.txt",
+    "skills/skill-creator/SKILL.md",
+    "skills/skill-creator/agents/analyzer.md",
+    "skills/skill-creator/agents/comparator.md",
+    "skills/skill-creator/agents/grader.md",
+    "skills/skill-creator/assets/eval_review.html",
+    "skills/skill-creator/eval-viewer/generate_review.py",
+    "skills/skill-creator/eval-viewer/viewer.html",
+    "skills/skill-creator/references/schemas.md",
+    "skills/skill-creator/scripts/__init__.py",
+    "skills/skill-creator/scripts/aggregate_benchmark.py",
+    "skills/skill-creator/scripts/generate_report.py",
+    "skills/skill-creator/scripts/improve_description.py",
+    "skills/skill-creator/scripts/package_skill.py",
+    "skills/skill-creator/scripts/quick_validate.py",
+    "skills/skill-creator/scripts/run_eval.py",
+    "skills/skill-creator/scripts/run_loop.py",
+    "skills/skill-creator/scripts/utils.py",
+    "skills/skill-network/SKILL.md",
+    "skills/skill-network/references/extension-protocol.md",
+    "skills/skill-network/references/skill-map.md",
+    "verify-pack.ps1",
+    "verify_pack.py",
+    "wheels/pymupdf-1.28.0-cp310-abi3-win_amd64.whl"
+   ]
+  }
+ ],
+ "install": {
+  "entry": "install.cmd",
+  "powershell": "install.ps1",
+  "skills_target": "%USERPROFILE%\\.dsh\\skills",
+  "engine_target": "%USERPROFILE%\\.dsh\\native-forge"
+ },
+ "verify": {
+  "python": "verify_pack.py",
+  "powershell": "verify-pack.ps1"
+ },
+ "files": [
+  {
+   "path": ".gitattributes",
+   "bytes": 741,
+   "sha256": "9b1e921501cf435fe9a46982114d312433fef5d9ad08f8a0b90f8945ade998b1"
+  },
+  {
+   "path": ".gitignore",
+   "bytes": 248,
+   "sha256": "348de0c2b6ef636a73f53d7a3a900f9b46fd38b573ef1844cf6ea3086b441893"
+  },
+  {
+   "path": "LICENSE",
+   "bytes": 1476,
+   "sha256": "b9077a46250d6260a6f8b2fa47427ea2bd49c482abb30230f500921d32d0afb7"
+  },
+  {
+   "path": "LICENSES/AGPL-3.0.txt",
+   "bytes": 34523,
+   "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0"
+  },
+  {
+   "path": "LICENSES/Apache-2.0.txt",
+   "bytes": 11358,
+   "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+  },
+  {
+   "path": "LICENSES/LPPL-1.3c.txt",
+   "bytes": 19102,
+   "sha256": "3d262cdf34dafa6955f703c634a8c238ec44109bc8dd6ef34fb7aa54809f7e66"
+  },
+  {
+   "path": "NOTICE.md",
+   "bytes": 3076,
+   "sha256": "00016c82d4e136f7231be413dab021d8f12117982437991d4ff30fe4a229124f"
+  },
+  {
+   "path": "README.en.md",
+   "bytes": 3880,
+   "sha256": "ac1cd72832167c45d671176871479f5fd0910b3678f08a185d834c9cc08ad953"
+  },
+  {
+   "path": "README.md",
+   "bytes": 18773,
+   "sha256": "d62f639d2ca77fb8f3be07e6ad295ae67b5e08ac8d5771a7f973f89f706a7cf0"
+  },
+  {
+   "path": "build/README.md",
+   "bytes": 2945,
+   "sha256": "ccf3614a8574935f08f63cbfc3ec129df960378d6f34541b67f26e8f72ab209d"
+  },
+  {
+   "path": "build/make_manifest.py",
+   "bytes": 3433,
+   "sha256": "f66815e466775fc57e5001bf46d7c41f5fafc0e67666d2847885c019cb3a7f7d"
+  },
+  {
+   "path": "build/make_transcripts.py",
+   "bytes": 9874,
+   "sha256": "c970751c517b9656e125b6c6cb89e550592a25f8390e02e8e0d15053c3113a64"
+  },
+  {
+   "path": "ci/github-actions-verify.yml",
+   "bytes": 746,
+   "sha256": "31756d95fe123fe0786c418efa7d00bab2bf42e9f978088e96ec2cd02bef4274"
+  },
+  {
+   "path": "docs/DEPENDENCIES.md",
+   "bytes": 14152,
+   "sha256": "2f653e7b4e8b955ab04142eae941e8dd6df0ee4de5066bf9488382c0cf9b015a"
+  },
+  {
+   "path": "docs/FAQ.md",
+   "bytes": 15807,
+   "sha256": "2093ee7093e7b60a8baf1d77c13e24b6eedbb049fa152fc30bfd3403436a3544"
+  },
+  {
+   "path": "docs/INSTALL.md",
+   "bytes": 15479,
+   "sha256": "bab2a682ca6ec1db0181c7887480c8e2e489df6fdf6169f8e8ef2466d476162c"
+  },
+  {
+   "path": "docs/ORIGINAL-PACK-README.md",
+   "bytes": 9271,
+   "sha256": "81043a5165ee88991734e2c8e523317a1719d68731075d57e9619406b5248076"
+  },
+  {
+   "path": "docs/WORKFLOW.md",
+   "bytes": 24453,
+   "sha256": "a7b136cfa24ee23c71ca78ae53ae0ec5981b9edce27482c95b430108a0fd5f2e"
+  },
+  {
+   "path": "engine/PORTING.md",
+   "bytes": 3424,
+   "sha256": "89dc01abc9c76250ee2e0a2864b54078fc23eb09acff0464eb28783442c00a0f"
+  },
+  {
+   "path": "engine/native-forge/AGENTS.md",
+   "bytes": 1080,
+   "sha256": "d6c01a7c554d7853443cc77788b9df1c1ae5ad6bfd90427bba930964ddf95ab3"
+  },
+  {
+   "path": "engine/native-forge/PACKAGE.md",
+   "bytes": 1484,
+   "sha256": "cc05d286fef9eb6da30e5f33c599bb7fb6c03005d2c5dea4d9d99906a93e3800"
+  },
+  {
+   "path": "engine/native-forge/README.md",
+   "bytes": 4764,
+   "sha256": "f4f9ec6fec0e7639decb84c83226f8207e2021e63eadb40382f735995ab5694d"
+  },
+  {
+   "path": "engine/native-forge/docs/design.md",
+   "bytes": 4925,
+   "sha256": "26aeb25471dffdd2138566b4f8167653645be0b3e4cd5b6b6b623f4eaa440856"
+  },
+  {
+   "path": "engine/native-forge/docs/document-plan.md",
+   "bytes": 7888,
+   "sha256": "2ed49663fb8964dbc80fdb1da4215e836553fea6a331050e30302a5793985bbc"
+  },
+  {
+   "path": "engine/native-forge/docs/large-book.md",
+   "bytes": 2136,
+   "sha256": "06045a6d27fe0897b7dc7e24e639c6e1b739e464ed387fbb257b62b462c88cf6"
+  },
+  {
+   "path": "engine/native-forge/docs/layout.md",
+   "bytes": 9615,
+   "sha256": "b1f8eacb0b17c2924ac20118f35213583e35dac5a397ee856814bf70c87d05fd"
+  },
+  {
+   "path": "engine/native-forge/docs/preflight.md",
+   "bytes": 7325,
+   "sha256": "4841625f79ba7c9e7b924e5ba494081d0c875f28ad59b47a03fda4db940accd4"
+  },
+  {
+   "path": "engine/native-forge/docs/skill-validation.json",
+   "bytes": 796,
+   "sha256": "82f7c36f27174f8da1a4bb5779bb67c0a4ce6faf441b8746620dba4b8fae843a"
+  },
+  {
+   "path": "engine/native-forge/docs/worker-contract.md",
+   "bytes": 3200,
+   "sha256": "22e969de93cae3618b3008dcd2810b29473b0c1ddabb8bdc3aba2da9026e4974"
+  },
+  {
+   "path": "engine/native-forge/docs/重构分析与验收报告.md",
+   "bytes": 9626,
+   "sha256": "363203b2f9dcf1d90f7c7e0f4dabfb47f18e878091730374a6300f97196b9463"
+  },
+  {
+   "path": "engine/native-forge/engine/deepseek_redraw_task.txt",
+   "bytes": 3439,
+   "sha256": "a3fa06d07fb68162f19e4c113748bf00ceedf9d4b310eecdcec1a95e22b3312b"
+  },
+  {
+   "path": "engine/native-forge/engine/deepseek_task.txt",
+   "bytes": 4886,
+   "sha256": "aa25ea9b75e0d0f1b6469024a6a4edebafeb30a7cd7161d2f8fc3a9e22ce15e4"
+  },
+  {
+   "path": "engine/native-forge/engine/native_forge.py",
+   "bytes": 129200,
+   "sha256": "eea0526e8efe4ad0de51f1cbde4570de31db3642421337a1623bd8d923f57af6"
+  },
+  {
+   "path": "engine/native-forge/engine/native_shading_qa.py",
+   "bytes": 14901,
+   "sha256": "21689cc39f0541a78f12e1358b9a6c6dd63ea31d952d4280d25ecc2ffa772b19"
+  },
+  {
+   "path": "engine/native-forge/engine/redraw.py",
+   "bytes": 21148,
+   "sha256": "ccb9cac4673504c8d68d5d8a5fca31b1d83bf3ac7ee810156ea95d27b9bc4c07"
+  },
+  {
+   "path": "engine/native-forge/engine/source_pdf_objects.py",
+   "bytes": 17611,
+   "sha256": "0a1cf52ed9295b8cbf477d345a3d795512f13b1ef964e257269978ead7a81f02"
+  },
+  {
+   "path": "engine/native-forge/nf.cmd",
+   "bytes": 330,
+   "sha256": "e81a05a729c90372ba43dd141c5356cd15c60f8f79fdd57b93d8f44e12ceaf44"
+  },
+  {
+   "path": "engine/native-forge/scripts/merge_chunks.py",
+   "bytes": 4175,
+   "sha256": "8f6e38b8d0c258205b0cc40c3c546e40dc977c1dec905b27ed9aaf4604abf11b"
+  },
+  {
+   "path": "engine/native-forge/scripts/plan_document.py",
+   "bytes": 15821,
+   "sha256": "e74ee0060455134fc485dac08a5d8eda19805b2b5d0e721c5285fc4b0fbc76c7"
+  },
+  {
+   "path": "engine/native-forge/scripts/preflight_pdf.py",
+   "bytes": 16066,
+   "sha256": "b1337a56eb4c0897a84c48a906f6c45feebf119f93490a0233cddb8a6bf3dc8a"
+  },
+  {
+   "path": "engine/native-forge/scripts/scaffold_inventory.py",
+   "bytes": 1134,
+   "sha256": "7c7407ae22c6046517849d6ff85d0a94774cf603067a79b034feab7fbe63b198"
+  },
+  {
+   "path": "engine/native-forge/templates/License",
+   "bytes": 19106,
+   "sha256": "5f05fcf6ef25a6c31bccd2df7c0c46b23107bbeb2ce5cdba74efb5cc357f4dbb"
+  },
+  {
+   "path": "engine/native-forge/templates/elegantbook.cls",
+   "bytes": 50671,
+   "sha256": "d2cdb802b3de46b1d659d1a8eb36979aecd761402d3e95296936f433f97549eb"
+  },
+  {
+   "path": "engine/native-forge/templates/nativeforge.sty",
+   "bytes": 5813,
+   "sha256": "a56aebb325057bacf5ababfdb63fb62540ebe7594f896ccf930bcbec6533cc4c"
+  },
+  {
+   "path": "engine/native-forge/tests/.integration/chem-real.json",
+   "bytes": 191,
+   "sha256": "5aff06984d32d8688e1f051457f3578e0c8f14394d6a46c0ada223dd765663cd"
+  },
+  {
+   "path": "engine/native-forge/tests/.integration/chem-real.png",
+   "bytes": 1381,
+   "sha256": "5cc2958ebbbb37462eda49e14b62384d66d78b977c6ab38a08df9241955aa7a5"
+  },
+  {
+   "path": "engine/native-forge/tests/.integration/flow-real.json",
+   "bytes": 678,
+   "sha256": "96822812bf744eea384335863c67edf2becd1ecf238d3fda971ecd492dd68504"
+  },
+  {
+   "path": "engine/native-forge/tests/.integration/flow-real.png",
+   "bytes": 8556,
+   "sha256": "232e4c3135f95b3332bca3d5600b13dc856eb6eb08242615d450cbfa84e3e474"
+  },
+  {
+   "path": "engine/native-forge/tests/.integration/project/assets.json",
+   "bytes": 2808,
+   "sha256": "26617425fa2c7f18db550d6371fa6273fbf7f7f77f0027834fe34e1c434c7c10"
+  },
+  {
+   "path": "engine/native-forge/tests/.integration/project/content.json",
+   "bytes": 221,
+   "sha256": "1aa637274b6f00c2651d4c29e235c0490fcceff64d92b3a093b9f06007191afe"
+  },
+  {
+   "path": "engine/native-forge/tests/.integration/project/packet/packet.json",
+   "bytes": 324,
+   "sha256": "ae8305b850d95ac4a80a6b9c91943f13c3657e6aab61406c5a2377ab44ff7bff"
+  },
+  {
+   "path": "engine/native-forge/tests/.integration/project/packet/pages/p0001.json",
+   "bytes": 629,
+   "sha256": "29cff77819f1ef1bc51686baa5053cb769c1f21aafddc392bc54e350d9da174e"
+  },
+  {
+   "path": "engine/native-forge/tests/.integration/project/packet/pages/p0001.png",
+   "bytes": 6633,
+   "sha256": "874bd51f52374dba31b05eac1d07d1fac3b0770747fd08e8ba7092e374067ba0"
+  },
+  {
+   "path": "engine/native-forge/tests/.integration/project/project.json",
+   "bytes": 681,
+   "sha256": "1181312ef349d6e0ff3714c74249553c3df528f8bb6b865fef0bd7c906590838"
+  },
+  {
+   "path": "engine/native-forge/tests/.integration/project/redraw/chem-real/figure.aux",
+   "bytes": 73,
+   "sha256": "9aacf8589df7c754419a4009067eb9a78c80581422f359a9d69ccd07ced3c444"
+  },
+  {
+   "path": "engine/native-forge/tests/.integration/project/redraw/chem-real/figure.log",
+   "bytes": 32347,
+   "sha256": "c2752241d0ce1f9346ac2f704284a5c5d2d85178fac927804ad2d1b7ebd16857"
+  },
+  {
+   "path": "engine/native-forge/tests/.integration/project/redraw/chem-real/figure.pdf",
+   "bytes": 2513,
+   "sha256": "f4431ff9b5a35bbd9d2435c60c90a3963db55855876291f054f27a811c1eb75e"
+  },
+  {
+   "path": "engine/native-forge/tests/.integration/project/redraw/chem-real/figure.tex",
+   "bytes": 327,
+   "sha256": "65f8b6ebbaf64ddc0931f3bdbe8dc715cef4d614dfab77da22bbf38dc16166d8"
+  },
+  {
+   "path": "engine/native-forge/tests/.integration/project/redraw/chem-real/pass-1.stdout.txt",
+   "bytes": 12594,
+   "sha256": "339d3650f9d6ad978c7ba5229e15c55355c61f136e7afc7748920e3ac45b2fb5"
+  },
+  {
+   "path": "engine/native-forge/tests/.integration/project/redraw/chem-real/pass-2.stdout.txt",
+   "bytes": 12507,
+   "sha256": "aca6415266444fbfe4176f5e992b45b9769966a831e52d5253a2a7625afcb135"
+  },
+  {
+   "path": "engine/native-forge/tests/.integration/project/redraw/chem-real/spec.json",
+   "bytes": 191,
+   "sha256": "5aff06984d32d8688e1f051457f3578e0c8f14394d6a46c0ada223dd765663cd"
+  },
+  {
+   "path": "engine/native-forge/tests/.integration/project/redraw/flow-real/figure.aux",
+   "bytes": 32,
+   "sha256": "fbabe80c887f95a1ede6847f22dd91b380bda9d17ae8bfaa72e1741b16aa41e9"
+  },
+  {
+   "path": "engine/native-forge/tests/.integration/project/redraw/flow-real/figure.log",
+   "bytes": 31838,
+   "sha256": "061f5e956cb9dbc98d00452dd3e9924fde691227537fea8adb9d16ab4e8beaf8"
+  },
+  {
+   "path": "engine/native-forge/tests/.integration/project/redraw/flow-real/figure.pdf",
+   "bytes": 10039,
+   "sha256": "5e0f247c071421302f40aa85f304216016f550f509b0bbc3a9ca74602cb9f534"
+  },
+  {
+   "path": "engine/native-forge/tests/.integration/project/redraw/flow-real/figure.tex",
+   "bytes": 652,
+   "sha256": "9c4dd75f08eca75981b072b66a57546aa81bf5adc2ba1265a28f4897a19034c6"
+  },
+  {
+   "path": "engine/native-forge/tests/.integration/project/redraw/flow-real/pass-1.stdout.txt",
+   "bytes": 12538,
+   "sha256": "44654aa6e73bf7048aed3be9a781650b3fcf7b0a24c266c008faa3a28aa86213"
+  },
+  {
+   "path": "engine/native-forge/tests/.integration/project/redraw/flow-real/pass-2.stdout.txt",
+   "bytes": 12533,
+   "sha256": "ce67949d220986721f7498ea92fe253702ef3cbaf88690ef36bb0cee4269450d"
+  },
+  {
+   "path": "engine/native-forge/tests/.integration/project/redraw/flow-real/spec.json",
+   "bytes": 678,
+   "sha256": "96822812bf744eea384335863c67edf2becd1ecf238d3fda971ecd492dd68504"
+  },
+  {
+   "path": "engine/native-forge/tests/.integration/project/redraw/xy-real/figure.aux",
+   "bytes": 32,
+   "sha256": "fbabe80c887f95a1ede6847f22dd91b380bda9d17ae8bfaa72e1741b16aa41e9"
+  },
+  {
+   "path": "engine/native-forge/tests/.integration/project/redraw/xy-real/figure.log",
+   "bytes": 31431,
+   "sha256": "66f16d3a72704331ffe1864ca2ff5ba62de08814a580332f48f27597a4087956"
+  },
+  {
+   "path": "engine/native-forge/tests/.integration/project/redraw/xy-real/figure.pdf",
+   "bytes": 13603,
+   "sha256": "7e8993d7829ea856ff4bf32902515f888a004eff5034ae4f994131c2c0e0a186"
+  },
+  {
+   "path": "engine/native-forge/tests/.integration/project/redraw/xy-real/figure.tex",
+   "bytes": 4767,
+   "sha256": "d477097cddd16e6e3550b72c3b22fa0e5211ad5c0a9d9e010cdfdc591a6513a3"
+  },
+  {
+   "path": "engine/native-forge/tests/.integration/project/redraw/xy-real/pass-1.stdout.txt",
+   "bytes": 12240,
+   "sha256": "610e0baa5ddab6e973b3d7b537c3fa38607269ae4bc4a57dd64e95a85193e838"
+  },
+  {
+   "path": "engine/native-forge/tests/.integration/project/redraw/xy-real/pass-2.stdout.txt",
+   "bytes": 12235,
+   "sha256": "9be511fc97212d96d71ec3abc314eb18bd312b73133b3542c58c106aaf1d5ef6"
+  },
+  {
+   "path": "engine/native-forge/tests/.integration/project/redraw/xy-real/spec.json",
+   "bytes": 837,
+   "sha256": "e6c18eaf39491da7972ed29749264b6cf3a0bbc83b75274365ffa464e72fcd9f"
+  },
+  {
+   "path": "engine/native-forge/tests/.integration/source.pdf",
+   "bytes": 953,
+   "sha256": "dff5b62fe0ec814f11d16e4b2168d42f0933eb5c8f39d2ef63d46dfbdb16e85b"
+  },
+  {
+   "path": "engine/native-forge/tests/.integration/xy-real.json",
+   "bytes": 837,
+   "sha256": "e6c18eaf39491da7972ed29749264b6cf3a0bbc83b75274365ffa464e72fcd9f"
+  },
+  {
+   "path": "engine/native-forge/tests/.integration/xy-real.png",
+   "bytes": 13008,
+   "sha256": "74d8c1b30afe729e3b138ece474b38967f2fa93cae41cec0a7ee71e8da43d871"
+  },
+  {
+   "path": "engine/native-forge/tests/test_cli_acceptance.py",
+   "bytes": 4599,
+   "sha256": "179dc80212c1b74bb1283ccb585993f11bef994c9f0016ba1c65d040cf707457"
+  },
+  {
+   "path": "engine/native-forge/tests/test_document_plan.py",
+   "bytes": 12397,
+   "sha256": "3630a8eadc0e68b86264576823d2851329e7246edfb9c48521244c498327ca3e"
+  },
+  {
+   "path": "engine/native-forge/tests/test_inventory.py",
+   "bytes": 4913,
+   "sha256": "df895df581f55419cbe9b9d70239ad1d50d90a0b08705086b5046bac8f9bd647"
+  },
+  {
+   "path": "engine/native-forge/tests/test_layout.py",
+   "bytes": 17874,
+   "sha256": "bc735dc7014f335565cb52fa7fe215059659cb74a38981a6240cbded8a529184"
+  },
+  {
+   "path": "engine/native-forge/tests/test_native_forge.py",
+   "bytes": 43113,
+   "sha256": "e07497c01102849c02f696e2d12b524d1596250101f0f78c3af810138b15e23f"
+  },
+  {
+   "path": "engine/native-forge/tests/test_preflight.py",
+   "bytes": 8179,
+   "sha256": "a9c8e3136e67337eca35e6a0cdf56b173d14ddaa71b24a9225e983448c258dea"
+  },
+  {
+   "path": "engine/native-forge/tests/test_redraw.py",
+   "bytes": 24884,
+   "sha256": "e4755100a3c0fde366fc0d90ddf6e4f6f56ab0a69c3b203af45184d447b6a659"
+  },
+  {
+   "path": "engine/native-forge/tests/verification.json",
+   "bytes": 871,
+   "sha256": "1d7c6c270f8948ec56d568fb98f1cca7e6caca58f14068ecf213f746ea31e6e4"
+  },
+  {
+   "path": "engine/native-forge/third_party/qr/zxing_cpp-3.1.1.dist-info/INSTALLER",
+   "bytes": 4,
+   "sha256": "ceebae7b8927a3227e5303cf5e0f1f7b34bb542ad7250ac03fbcde36ec2f1508"
+  },
+  {
+   "path": "engine/native-forge/third_party/qr/zxing_cpp-3.1.1.dist-info/METADATA",
+   "bytes": 2322,
+   "sha256": "1f2642f835a20c70376e540b348591825363be469ae8458a5ab69dfab4c13d7a"
+  },
+  {
+   "path": "engine/native-forge/third_party/qr/zxing_cpp-3.1.1.dist-info/RECORD",
+   "bytes": 846,
+   "sha256": "9c2dc6615129fa6fb6b8f4ce85a58becea9b2d958015d19d3a6a87fb551924f3"
+  },
+  {
+   "path": "engine/native-forge/third_party/qr/zxing_cpp-3.1.1.dist-info/REQUESTED",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "path": "engine/native-forge/third_party/qr/zxing_cpp-3.1.1.dist-info/WHEEL",
+   "bytes": 104,
+   "sha256": "63587a0c8f5f51d087d8443dcdbc57f2b0e9553bc4e5d2d5e7e369a9fdf21b45"
+  },
+  {
+   "path": "engine/native-forge/third_party/qr/zxing_cpp-3.1.1.dist-info/licenses/LICENSE",
+   "bytes": 11358,
+   "sha256": "c6596eb7be8581c18be736c846fb9173b69eccf6ef94c5135893ec56bd92ba08"
+  },
+  {
+   "path": "engine/native-forge/third_party/qr/zxingcpp/__init__.py",
+   "bytes": 190,
+   "sha256": "b1e625cf2cc1bb9e0ebe62d7ee1646fe2b4c9575b4c566f6eb1421a4202e3646"
+  },
+  {
+   "path": "engine/native-forge/third_party/qr/zxingcpp/py.typed",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "path": "engine/native-forge/third_party/qr/zxingcpp/zxingcpp.pyd",
+   "bytes": 1823186,
+   "sha256": "8bf8e030dd3512660ace807454ed855952a0e2ac8bab06265a47106d274a637d"
+  },
+  {
+   "path": "engine/native-forge/third_party/qr/zxingcpp/zxingcpp.pyi",
+   "bytes": 20122,
+   "sha256": "929b7d18433d89e57067e2583b22ec00430eddf13b83267e2635deee601e4069"
+  },
+  {
+   "path": "examples/README.md",
+   "bytes": 1017,
+   "sha256": "4a0bb97b26bb589b06e174701b7a36a0d810e386fe86cc0471079c4b8b46c8c1"
+  },
+  {
+   "path": "examples/commands.ps1",
+   "bytes": 3365,
+   "sha256": "788a28aaa1543c5301ea9673d8d84fc84d8e1096a0fb5f9cef87cd0b122d31af"
+  },
+  {
+   "path": "examples/project-skeleton/README.md",
+   "bytes": 1824,
+   "sha256": "84ff39d18e5814bed714499d318a6079ecc6cc32cd20184e6426a51aa318369f"
+  },
+  {
+   "path": "examples/project-skeleton/assets.json",
+   "bytes": 3,
+   "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+  },
+  {
+   "path": "examples/project-skeleton/content.json",
+   "bytes": 214,
+   "sha256": "305e0e536c8b66c2444a3fae36e70c06a80126e6fb290897af2bb1cdd886ac21"
+  },
+  {
+   "path": "examples/project-skeleton/packet/packet.json",
+   "bytes": 518,
+   "sha256": "7ef5d8573a95499c2f9b2e7504edc7549daead3769d6c6d5496f17827011b4e2"
+  },
+  {
+   "path": "examples/project-skeleton/packet/pages/p0001.json",
+   "bytes": 3676,
+   "sha256": "15cca57b38268c15ad1fdace5fa8300a83eea7a5ef7b52de209c80f2d7564717"
+  },
+  {
+   "path": "examples/project-skeleton/packet/pages/p0001.png",
+   "bytes": 83561,
+   "sha256": "6a26e4588ec6d04d0b710338a6b154bee73433d80efdef69c774d93943987f77"
+  },
+  {
+   "path": "examples/project-skeleton/packet/pages/p0002.json",
+   "bytes": 1120,
+   "sha256": "a549dedf6b1659468610a55e8b3ed940d396f3c9124d6dfd30db6e64cc1ee540"
+  },
+  {
+   "path": "examples/project-skeleton/packet/pages/p0002.png",
+   "bytes": 27344,
+   "sha256": "056c3a842efd6effaa3070de31a89be6b29d16496f8944a456cbd92406a206ea"
+  },
+  {
+   "path": "examples/project-skeleton/project.json",
+   "bytes": 604,
+   "sha256": "56df5bbff2816b2ddc888786499f828c134cf5a768f71d06b4bed530e3b0a620"
+  },
+  {
+   "path": "examples/project-skeleton/source.pdf",
+   "bytes": 6812,
+   "sha256": "8368d1f8f18628b9956a345ee586495987936f3ab07b9c061127ea4bed98f64a"
+  },
+  {
+   "path": "examples/smoke-test.md",
+   "bytes": 2480,
+   "sha256": "ac96a1995b4ec43898654e8130e8a36804aed5fd6fcbd4a715710f566878d28f"
+  },
+  {
+   "path": "examples/worker-brief-template.md",
+   "bytes": 8644,
+   "sha256": "7370e4034f6b62f6da1f9ed1990cd30907ea84ab9b4badfacb2b28108224998b"
+  },
+  {
+   "path": "install.cmd",
+   "bytes": 1352,
+   "sha256": "67cd768979f14ebaa3bf8cff412bb009bc3f8b3d79760cbac84dfbfe0b1aa30a"
+  },
+  {
+   "path": "install.ps1",
+   "bytes": 20977,
+   "sha256": "4dc8fb45aee265e3e3abfb22b30dc9a21ba9d437ecc320d373fffe3db0002635"
+  },
+  {
+   "path": "playbook/01-总览与取舍.md",
+   "bytes": 8334,
+   "sha256": "c2a8fbe39abf675e162cc94a14ba229aab48aa986e78ef0f20291c95224a4db1"
+  },
+  {
+   "path": "playbook/02-环境与依赖.md",
+   "bytes": 12046,
+   "sha256": "df918ab4d611a1bb862f788656cf3f9e7e8f7fb8f80527b5c56ecbf82c4493eb"
+  },
+  {
+   "path": "playbook/03-命令速查.md",
+   "bytes": 15862,
+   "sha256": "e736c01a137c87b6a77e99034ce6e392e200db6b11c011bbb8c8f7182391a037"
+  },
+  {
+   "path": "playbook/04-踩坑与注意点.md",
+   "bytes": 22005,
+   "sha256": "9f9c3c09d8ce7c0878692b5ccb4315d0fb79bf82c23f5c3282ccfadf908a88de"
+  },
+  {
+   "path": "playbook/05-会话复盘.md",
+   "bytes": 19644,
+   "sha256": "b011cfc85078ab10a7e7bc4013bd65948898cfad6127b446fbe9dd448e101206"
+  },
+  {
+   "path": "playbook/06-示例用法.md",
+   "bytes": 20596,
+   "sha256": "4b8604ed055aba0b9f5d898ef9d8091be94057940e4c9d62d6bf6638f42b7623"
+  },
+  {
+   "path": "sessions/01-起始-学习native-textbook并为ME4300搭流水线.md",
+   "bytes": 572263,
+   "sha256": "585bcf9657bc791a329933eadcda9c42f60e1321ac0627072feaf58466612d38"
+  },
+  {
+   "path": "sessions/02-把Codex技能接入DSH.md",
+   "bytes": 82143,
+   "sha256": "984ed4068b061040a668efdd9eb8e5b64d399e4395ff84215d3e7e3fe0016a84"
+  },
+  {
+   "path": "sessions/03-从会话zip恢复继续.md",
+   "bytes": 588217,
+   "sha256": "f8be21a44bd7e22305d7f84f6942f52294dc0bb61b0c2a643dc62ff135ccb965"
+  },
+  {
+   "path": "sessions/04-金融物理-worker起草.md",
+   "bytes": 55386,
+   "sha256": "233a8c5b2ad38b1e372f33580f337a50157a0c222e8b8bcc3120b59b3bc1c4b3"
+  },
+  {
+   "path": "sessions/05-经典力学-主控.md",
+   "bytes": 1064404,
+   "sha256": "703c5bdea34a780394de2f113300bc2cb785abc70c32bf3d22fae9e0e621daec"
+  },
+  {
+   "path": "sessions/06-经典力学-翻译worker.md",
+   "bytes": 57035,
+   "sha256": "09bc1adcb14f8e83d3dfd26824a12af2c33bc7e73d253400e915fdfe9e7f4366"
+  },
+  {
+   "path": "sessions/07-Lecture2-Signals-PPT双版本.md",
+   "bytes": 469044,
+   "sha256": "73b44328c08cbf25d8a366ec8bfe4d495be98b7b4cef22fec8284d5a84ad972e"
+  },
+  {
+   "path": "sessions/08-worker加监工模式.md",
+   "bytes": 119411,
+   "sha256": "27963efb57ce00c03879321742740c55300f08a449306729a5233092dbc9e782"
+  },
+  {
+   "path": "sessions/09-native-textbook技能升级.md",
+   "bytes": 700090,
+   "sha256": "48579ca89207070400fa3dc28a5a5409805f8bf203fb66ce64d1ff8a8e90e715"
+  },
+  {
+   "path": "sessions/10-计算物理-扫描件主控.md",
+   "bytes": 2063605,
+   "sha256": "64a8b71a5cdb608f4f6b38690175bf470fe9f6f9b69b2278c5a850ae94e0cca5"
+  },
+  {
+   "path": "sessions/11-计算物理-独立视觉审查.md",
+   "bytes": 72477,
+   "sha256": "b92cd6ed119389ee19728f6b8b35593201b0ee24eb67ebab491e1aa066a7e7c8"
+  },
+  {
+   "path": "sessions/12-失败排查与续跑.md",
+   "bytes": 3275,
+   "sha256": "9208f86bd2e60e00b65a4f69bb9fcc5a6f5180733195875675a5cdc0ed49b8e7"
+  },
+  {
+   "path": "sessions/SKILL-使用统计.md",
+   "bytes": 2689,
+   "sha256": "f1afe4e0cd6e0cedac351fd07f966e329ddab14897ed897c1b3269832212ae68"
+  },
+  {
+   "path": "sessions/index.md",
+   "bytes": 3269,
+   "sha256": "b837b6a5fdcc37ec774b8ef256a15286f3beff583d85806293b22ad10477ed8f"
+  },
+  {
+   "path": "skills/README-SKILLS.md",
+   "bytes": 3288,
+   "sha256": "c47073cd58b9cd1501ed2cabaf5914ae6b9043d31aba4899b6dc93ac3a4360de"
+  },
+  {
+   "path": "skills/deepseek-claude-subagent/SKILL.md",
+   "bytes": 12603,
+   "sha256": "63b0be7ec771e7c5922d84b4aff178501262460773298f21fca8fcf9938357f4"
+  },
+  {
+   "path": "skills/deepseek-claude-subagent/agents/openai.yaml",
+   "bytes": 435,
+   "sha256": "7e9ecb21c31a0305e1e3d7d8e0c5da641fbf40673f0b6eed07785d82769b001c"
+  },
+  {
+   "path": "skills/deepseek-claude-subagent/scripts/invoke-deepseek-claude.cmd",
+   "bytes": 103,
+   "sha256": "eb5876204563bb80adf1043f9e6146df3405636eb98c3445dffdf7a5de0861f6"
+  },
+  {
+   "path": "skills/deepseek-claude-subagent/scripts/invoke-deepseek-claude.ps1",
+   "bytes": 2645,
+   "sha256": "2210e550f0659644f7f6774ddc395ce7b525ae212ea5332c2adf1361cad8506a"
+  },
+  {
+   "path": "skills/diagnose-windows-sandbox-acl/SKILL.md",
+   "bytes": 6982,
+   "sha256": "9c616c78892daeaea864a9b2d6baaea91ff133cf83cde0b725c6caee2d4933cb"
+  },
+  {
+   "path": "skills/diagnose-windows-sandbox-acl/scripts/diagnose-windows-sandbox-acl.ps1",
+   "bytes": 45460,
+   "sha256": "adba89f3b10692302723d231d003cdf365311effaff996d32416f9531e3b63d9"
+  },
+  {
+   "path": "skills/humanizer-zh/.gitignore",
+   "bytes": 41,
+   "sha256": "e52aac198acd71945e1730f45cafba41fffda4e2a0d7d6a38175880aae8eabea"
+  },
+  {
+   "path": "skills/humanizer-zh/LICENSE",
+   "bytes": 1063,
+   "sha256": "aa00e74769e1b9d8e7fa7094dbfcca9b129a0ded6dce1cf4da050b99146d2fa7"
+  },
+  {
+   "path": "skills/humanizer-zh/README.md",
+   "bytes": 7799,
+   "sha256": "60cd3ed8b4753837ca8f8fcebf6076a38591a269d91ea1791aa7448e5a1b1b58"
+  },
+  {
+   "path": "skills/humanizer-zh/SKILL.md",
+   "bytes": 18898,
+   "sha256": "e0edbdbc9008644263d5573fb59beac95794e188fd99c35012bfd79e9ae4beeb"
+  },
+  {
+   "path": "skills/humanizer/AGENTS.md",
+   "bytes": 1639,
+   "sha256": "69f499fe5f607547313a2b63e0a3e42563628e25ff82d9d66bdecf5e9f8fb5f4"
+  },
+  {
+   "path": "skills/humanizer/LICENSE",
+   "bytes": 1066,
+   "sha256": "4ac4810254ab36d45419141aeb8e69bf50652cfafe5b2dab947d06d44e5cbf96"
+  },
+  {
+   "path": "skills/humanizer/README.md",
+   "bytes": 11075,
+   "sha256": "bbfe09e399e77ec35202a30a1a65594a33824b1d19fcb43bd8f54b688aafdb27"
+  },
+  {
+   "path": "skills/humanizer/SKILL.md",
+   "bytes": 34222,
+   "sha256": "2dd885dd96a63e4c3cff281fba639788bff956b4bb759157ef0b0681a114eaa3"
+  },
+  {
+   "path": "skills/native-textbook/SKILL.md",
+   "bytes": 16832,
+   "sha256": "dc961c1dd6a62891331a5452f725f823a15b579b364fb668838b627e87372b72"
+  },
+  {
+   "path": "skills/native-textbook/agents/openai.yaml",
+   "bytes": 365,
+   "sha256": "7b3a5fe8d6a48acb5b873d9ea62da55a4078364c4f086377456701fffc380ada"
+  },
+  {
+   "path": "skills/native-textbook/assets/review-examples/compare-p03-matrix.png",
+   "bytes": 132555,
+   "sha256": "37ce05b667a93d3170f451b1bc0e901eb069742b8827ad056659b2442e835067"
+  },
+  {
+   "path": "skills/native-textbook/assets/review-examples/compare-p05-waveforms.png",
+   "bytes": 78285,
+   "sha256": "2d3c8fa9e965f7d91aa63e5fedf11f8b3c49d47010a7d9c8d2bb09c19a77760e"
+  },
+  {
+   "path": "skills/native-textbook/assets/review-examples/compare-p15-ode.png",
+   "bytes": 136373,
+   "sha256": "7b9a2fde0c03e9ca4cc3f4e3f65546dc1f69c413110064df6d48bf29863f21a2"
+  },
+  {
+   "path": "skills/native-textbook/assets/slide-template.tex",
+   "bytes": 4519,
+   "sha256": "72e4a155228daad76f007dac0b312e6989879f7230c4e9f8e6d5a2e53c228cef"
+  },
+  {
+   "path": "skills/native-textbook/references/chinese-typography.md",
+   "bytes": 30300,
+   "sha256": "c75b4a04f6df2b4a26568df279558d39fc10354d629810b92a4e5fc8b6ee9488"
+  },
+  {
+   "path": "skills/native-textbook/references/cover-and-geometry.md",
+   "bytes": 14678,
+   "sha256": "6b3dbe9ca526c362de7b291d60725fe8e375b741860206c9df8257b132beaa0d"
+  },
+  {
+   "path": "skills/native-textbook/references/figure-craft.md",
+   "bytes": 24424,
+   "sha256": "f85cd33fe03348e7d7c4db638f8fb3ecda8e10e24229f16c23e00de12b066bda"
+  },
+  {
+   "path": "skills/native-textbook/references/first-draft-and-polish.md",
+   "bytes": 13448,
+   "sha256": "9be9ffb7fd0af8a155deedcb8b8b07cebdeb92e185f006ec5cbedaf69f40de22"
+  },
+  {
+   "path": "skills/native-textbook/references/layout-and-polish.md",
+   "bytes": 6500,
+   "sha256": "d138b58a25b16548b75e673d09c146aa339785a576fb5c5fb3d491d549d1473b"
+  },
+  {
+   "path": "skills/native-textbook/references/scanned-source-repair.md",
+   "bytes": 9186,
+   "sha256": "ee47c14aa988d262c5219c98074a54e208565c5c09a3ac93d9b1c2a3220335ee"
+  },
+  {
+   "path": "skills/native-textbook/references/slide-native-pdf.md",
+   "bytes": 11575,
+   "sha256": "7a387707a52165bdae858fa00fa408f1afc628ad41f1f1970797b3778b505375"
+  },
+  {
+   "path": "skills/native-textbook/references/slide-pitfalls.md",
+   "bytes": 9862,
+   "sha256": "f2c4dc9ca1d386685c6414486fe37ec7dad0de2e49695d3ee6891f0978c1d285"
+  },
+  {
+   "path": "skills/native-textbook/references/slide-worker-contract.md",
+   "bytes": 4529,
+   "sha256": "caa8a83369a727afac8a5f2276e2ba38112af2d2ebf1564f19363a4bb934f5d4"
+  },
+  {
+   "path": "skills/native-textbook/references/source-preflight.md",
+   "bytes": 1741,
+   "sha256": "c3fca65ce3a3b485e97cf2b5652d80cb9f4ad99e136ec934b5790ae1167f85da"
+  },
+  {
+   "path": "skills/native-textbook/references/stopping-point-example.md",
+   "bytes": 3992,
+   "sha256": "eae4867da6d8c15e8da3a6217cd5e4d1613d8604fe87a9a33093997efb272326"
+  },
+  {
+   "path": "skills/native-textbook/references/upgrade-notes-20261014.md",
+   "bytes": 12684,
+   "sha256": "9e96508aa43e7891811fe1ad941f2ca293d7f8f21d75bb4d7ae4094685cdfc1d"
+  },
+  {
+   "path": "skills/native-textbook/references/visual-audit.md",
+   "bytes": 12558,
+   "sha256": "d0862893ccbae67594651c4254ad7885724a5330fe6c8a31374c25738e56455b"
+  },
+  {
+   "path": "skills/native-textbook/references/worker-contract.md",
+   "bytes": 4703,
+   "sha256": "dad36dd004ca8451bd10956f088409a454cb72e802ff4f98b2167b287d7daa41"
+  },
+  {
+   "path": "skills/native-textbook/references/workflow-gates.md",
+   "bytes": 10684,
+   "sha256": "82f9470e7a3dd57909bf58fefac7dcca267e26c05b77d8b174819c5320ace357"
+  },
+  {
+   "path": "skills/native-textbook/scripts/check_slide_pdf.py",
+   "bytes": 13034,
+   "sha256": "dbbc593beaaa4a9a1dbad077d4f1f9f86ff2e21475d86c1611295a66bebb230c"
+  },
+  {
+   "path": "skills/native-textbook/scripts/check_slide_spacing.py",
+   "bytes": 8325,
+   "sha256": "6e68ae242aff61d28718987953f444897af92ef0c144611037b3ef2a59f362a9"
+  },
+  {
+   "path": "skills/native-textbook/scripts/check_typography.py",
+   "bytes": 28429,
+   "sha256": "13e28e4635848524ca6178ef9b6b052ed7f9f808d2faa9246b1836a5b7e76d63"
+  },
+  {
+   "path": "skills/native-textbook/scripts/compare_typography.py",
+   "bytes": 19498,
+   "sha256": "023f177813529b1d226c8d75b5987dd9213276915b3ec1618be2c30e59a7ed8c"
+  },
+  {
+   "path": "skills/native-textbook/scripts/nf.cmd",
+   "bytes": 299,
+   "sha256": "8b4f55369c01c69efb412f33596dd043433e817d8eb79f940f82ee3def2bfe8a"
+  },
+  {
+   "path": "skills/native-textbook/scripts/render_review_sheets.py",
+   "bytes": 9216,
+   "sha256": "21cdc084a30fe4d95d6bd1b93d1613109da17179037dad6311988fba515572cc"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/audit_coverage.py",
+   "bytes": 4797,
+   "sha256": "883ce0e65e079c9ea97b0577b2288da102f557ede9f970463d53550cd527fe30"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/auto_continues.py",
+   "bytes": 4206,
+   "sha256": "7e56fed78988bdfb4cf97ca4c1d1e863799f90b9c5b489ca579cef2ea12e8bc8"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/check_numbering.py",
+   "bytes": 2805,
+   "sha256": "19fea519b99ff0d0891ec2721be85aeb47887c30c716b0cffc9fee4f4cb6b8f7"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/clamp_bbox.py",
+   "bytes": 1429,
+   "sha256": "5bdef3b06b3b9d59fdd90dcf1140d26db7e6bebd68fe20024ca416aaa2dcf3cc"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/detect_partial_pages.py",
+   "bytes": 3763,
+   "sha256": "c57587262b23186d32895c8fe1b5b3e86df012d7b4df43f03cb218e722cbbf37"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/fix_array_cols.py",
+   "bytes": 2885,
+   "sha256": "fcc0d3ba11ef367e138ebd38758d8b7b48d2a474caa69ed74235fb2ac9db54c8"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/fix_asset_hashes.py",
+   "bytes": 2718,
+   "sha256": "340e5b4d0852b530925089145bef06b99039061adb523cdbf50212c96200c8c5"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/fix_asset_names.py",
+   "bytes": 3654,
+   "sha256": "6bde4bb07dcf40644802b40a060db70b65afa96a5cf96f3f66096037eca2804c"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/fix_bad_json.py",
+   "bytes": 1777,
+   "sha256": "5ee7549347678395ee9e06b07bde3bccac4c697de8732f2db5009b45fbae6e52"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/fix_bare_figure_blocks.py",
+   "bytes": 2920,
+   "sha256": "9db1180dfd414d5e0ec6546a37cc45298962ebc8d96af79e7ba161ab90e7dc2e"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/fix_bbox_shift.py",
+   "bytes": 5438,
+   "sha256": "77ec586debb5ad3ef53b11e7a381c604a3b6a8fd5a71820c6b063f0f8381f61c"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/fix_caption_only_figures.py",
+   "bytes": 2365,
+   "sha256": "e8c5b4a189aa436f4ce23f0a483a6305bcefaaf6bad0c28dad18fc2347f9076a"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/fix_cases_cols.py",
+   "bytes": 2691,
+   "sha256": "a7941d4171ceac81c66a1c1c8d4db46e7bd748c90728c2577899fe671d64fd5b"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/fix_cdots.py",
+   "bytes": 3104,
+   "sha256": "40268d769d664626d9e896ca0c94ecaad989c43c3a94c2ccad4749a1fcca1de8"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/fix_cdots2.py",
+   "bytes": 3719,
+   "sha256": "d00f8256d5e61ded79280bf3469d83d5f46d6551e441a14112df734cbac296f8"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/fix_dup_ids.py",
+   "bytes": 2123,
+   "sha256": "b8bdf7a7ae747bb071c8d77ebf3cda7fe31263f2686dcc422440c2feb7750924"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/fix_dup_tags.py",
+   "bytes": 3038,
+   "sha256": "f3d8a884161e4a30b82024a3de9fca4995f9cee6dbfe4869feef2ab769a18512"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/fix_dups_and_heading.py",
+   "bytes": 3480,
+   "sha256": "132599149ef00235745d1b095de12a7cbb7c5e0e8daf8baa90d13e313414f821"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/fix_empty_heading_tex.py",
+   "bytes": 2273,
+   "sha256": "c98685c8023091feed6eba87d352196114461f76d271a5f0974f4c7b5d075832"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/fix_empty_text.py",
+   "bytes": 1603,
+   "sha256": "5855e9cf0c72bada4a5e9eeaaa74b8d68be88b85b6c30e1e9ffa453ec8342ba3"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/fix_excluded_fields.py",
+   "bytes": 1581,
+   "sha256": "180fa3fcfc2cea67772ab48d60b9b0fa1d7a2aeefe340a39ce6f9c44924ed9d1"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/fix_fig_trim.py",
+   "bytes": 1463,
+   "sha256": "544fabd4b7a4e75c1893e2d303a22e5d8498c3184e6a57001f3b8dde684fdd3a"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/fix_figure_fields.py",
+   "bytes": 3886,
+   "sha256": "ab7dcf6692e4d44df92f89f01003d5f6e500c5acc1d2c748787f82169c6ebdd6"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/fix_figure_number2.py",
+   "bytes": 3358,
+   "sha256": "d982c3ab47031006d41048cdbe3e487e89a6624e1faae84432b3fd5f5052168a"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/fix_figure_tex.py",
+   "bytes": 1634,
+   "sha256": "860412ee618614ff2dfc6f3ecd0ea0585261b57f28f559633a5875fda04b0d43"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/fix_glyphs.py",
+   "bytes": 1542,
+   "sha256": "cd78de66cb21fe10efd9d8b355c047d58b221c433db88fdfc1d4eb0442a172f4"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/fix_literal_blocks.py",
+   "bytes": 1845,
+   "sha256": "0ab0a8e637b5fe4d5a25a6486dd7e2177e1fb5287f86aa80678800a5b328d1d0"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/fix_literal_text.py",
+   "bytes": 2111,
+   "sha256": "69c68e3774a5098ba29b5bf4bd42f1b7f167d19a96f6cae77e9f9e96c9211f07"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/fix_nested_math5.py",
+   "bytes": 1857,
+   "sha256": "a91acb35014f4a448843e3088ed69822f5dcd3b21e9ffe294e28782998535622"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/fix_notes_dedup.py",
+   "bytes": 1338,
+   "sha256": "b8f0e38884b360a2d18bbacda0d1328716e359b4d1e8b8f7c6feae3cfc73bf82"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/fix_numbered_consistency.py",
+   "bytes": 2171,
+   "sha256": "731381136561e1398129aaf09b02cfd4ea3733a733255963bdfbde0828140ed3"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/fix_object_kind.py",
+   "bytes": 2019,
+   "sha256": "aaaef13d15ea3f6ba6f51fe574aa6aaad87b00973fa6b9acb37960104b3f8962"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/fix_overfull.py",
+   "bytes": 3265,
+   "sha256": "dac857f730b078e1d94747d2a8374e6c08a93fe7ddabde7b9c91135c05beb7d8"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/fix_p118_dup.py",
+   "bytes": 1738,
+   "sha256": "0fa4295f0a8d23d483de142ab758058a2918ea442806846db6fab686cae4c185"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/fix_text_dup.py",
+   "bytes": 2715,
+   "sha256": "3368ac87963084a6dd3ddb2c137f12b76282dfdf35b9523e507898a330d25b5c"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/gen_pages.py",
+   "bytes": 800,
+   "sha256": "b492071d2588bdc45e86172151132e90246c7258f05c554334c5fe577dd23d5d"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/locate_overfull.py",
+   "bytes": 1510,
+   "sha256": "a6465929c6f530aaa938e47da7efc5dd53e669b1863ce2101e5b6cbfd897436f"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/make_assets.py",
+   "bytes": 6215,
+   "sha256": "2fb967348ab39c12610306c6b39b3c5d38f2225199c4b09030494e85597febc7"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/merge_workers.py",
+   "bytes": 11233,
+   "sha256": "ecc4959d994203da413a533f5970ad1d613a7655c7c35a392a3d584ead55ba67"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/run_build_loop.py",
+   "bytes": 4462,
+   "sha256": "e74ae69fcdd96eb56a17d9773f98b59a3ff71344bf0e0c0ddb83ae7812ae6fcc"
+  },
+  {
+   "path": "skills/native-textbook/scripts/scan_repair/run_pipeline.py",
+   "bytes": 4465,
+   "sha256": "185858ba093ec5ead8c6d75beb52bd698755f282547214acd020a1bda0acd550"
+  },
+  {
+   "path": "skills/office-files/SKILL.md",
+   "bytes": 1463,
+   "sha256": "29caa625810cfe595f0234760d796d5388dc30c5dbdc69ea8be199e4a73c2128"
+  },
+  {
+   "path": "skills/office-files/references/tool-network.md",
+   "bytes": 1761,
+   "sha256": "5f126fc9f6c0dc13893d95dc807f570214737569bd8c125a75ce210ac0fef661"
+  },
+  {
+   "path": "skills/scientific-visuals/SKILL.md",
+   "bytes": 1423,
+   "sha256": "a6fefcbb61aca639b7af48e01b633655091a5088a02ec79220ac44003a01238d"
+  },
+  {
+   "path": "skills/scientific-visuals/references/tool-network.md",
+   "bytes": 1481,
+   "sha256": "7162539bbb13a7ed9288f3316236f693b57026e6cb742fbe4657260a8b0cef16"
+  },
+  {
+   "path": "skills/skill-authoring/SKILL.md",
+   "bytes": 1276,
+   "sha256": "64ed2a272831168999b2fcee27615e15e1b30f358d7e254bb728686cc360a626"
+  },
+  {
+   "path": "skills/skill-authoring/references/tool-network.md",
+   "bytes": 1403,
+   "sha256": "e1631be9025d9205c3e1843e0c40b0d610e8a24e8b7987beb428d3ee2e72a0f3"
+  },
+  {
+   "path": "skills/skill-creator/LICENSE.txt",
+   "bytes": 11357,
+   "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
+  },
+  {
+   "path": "skills/skill-creator/SKILL.md",
+   "bytes": 33168,
+   "sha256": "dcd4803e61e913e6fc27294184cd3a71f09f5e924ff20c8a9a20173e7b3c2bcf"
+  },
+  {
+   "path": "skills/skill-creator/agents/analyzer.md",
+   "bytes": 10376,
+   "sha256": "bf68f4cac5a56c673a928c2e6d619586c5b93ea364026ab37547772cb45a663a"
+  },
+  {
+   "path": "skills/skill-creator/agents/comparator.md",
+   "bytes": 7287,
+   "sha256": "fe1fc9787c495d864c5d6eada47396478572325fde1b33a96d78bf4b849b7a3e"
+  },
+  {
+   "path": "skills/skill-creator/agents/grader.md",
+   "bytes": 9049,
+   "sha256": "57134da0c1a4eea33fbd74a1c9c44aa814f07d6bc64de303edb586f941e5d21a"
+  },
+  {
+   "path": "skills/skill-creator/assets/eval_review.html",
+   "bytes": 7058,
+   "sha256": "ce477dcc74dc1c0d1d3352646a79167b5a63634e936b1019160025065974e452"
+  },
+  {
+   "path": "skills/skill-creator/eval-viewer/generate_review.py",
+   "bytes": 16365,
+   "sha256": "fc9d1b9243fe5ab6012ebd579bd76d0035de1b79fd3b969de114defab26478fb"
+  },
+  {
+   "path": "skills/skill-creator/eval-viewer/viewer.html",
+   "bytes": 44998,
+   "sha256": "a53213426ee1100441d701a3a0d49cda7a842f992d2c36463f4d3cc0258575fa"
+  },
+  {
+   "path": "skills/skill-creator/references/schemas.md",
+   "bytes": 12061,
+   "sha256": "8e8876180a8989b406a4d3edddf875b04cdfd5805cc8616686d552b11ce4455f"
+  },
+  {
+   "path": "skills/skill-creator/scripts/__init__.py",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+   "path": "skills/skill-creator/scripts/aggregate_benchmark.py",
+   "bytes": 14386,
+   "sha256": "123ef128ea5ccc01a4b1ac212ef5567f21e9c13d3d240609780beeb3200c49aa"
+  },
+  {
+   "path": "skills/skill-creator/scripts/generate_report.py",
+   "bytes": 12847,
+   "sha256": "13df7118a3c50c83c4c3250a606d5f2b20b25a3d44cbc392b3d669ec75281453"
+  },
+  {
+   "path": "skills/skill-creator/scripts/improve_description.py",
+   "bytes": 11116,
+   "sha256": "87d864570220b699fac52da309d2d6efdb060647bfebc74f768128e646accf80"
+  },
+  {
+   "path": "skills/skill-creator/scripts/package_skill.py",
+   "bytes": 4234,
+   "sha256": "1a33059b0db1ef73375d46d513e5ea81369d2e8838c970597b0d52ddef8d1c0f"
+  },
+  {
+   "path": "skills/skill-creator/scripts/quick_validate.py",
+   "bytes": 3972,
+   "sha256": "67cf5703402013936c8fb75ad6a1afecd8841d45cc5e606b634eb05825fde365"
+  },
+  {
+   "path": "skills/skill-creator/scripts/run_eval.py",
+   "bytes": 11464,
+   "sha256": "43e3b8f80dbf69c343967ba77e268fae991d9fa3ed68b32a0ff02532cd48657f"
+  },
+  {
+   "path": "skills/skill-creator/scripts/run_loop.py",
+   "bytes": 13605,
+   "sha256": "7bd6f674203168520517eec94c55f493c0d154339b061b4d7c0f0dad187d0f21"
+  },
+  {
+   "path": "skills/skill-creator/scripts/utils.py",
+   "bytes": 1661,
+   "sha256": "3af8ae62c40c73ab712207436a0d9a981e845f25c5a7040229eb189cc8e45bb1"
+  },
+  {
+   "path": "skills/skill-network/SKILL.md",
+   "bytes": 1134,
+   "sha256": "1db6267fee235f81eb09718ab51513c9eb9515df75d7a2cdf7082146380c4b80"
+  },
+  {
+   "path": "skills/skill-network/references/extension-protocol.md",
+   "bytes": 2467,
+   "sha256": "1ea00cbd8026e4dc41baf59ad4f11225ff980fe97c4811f8343ed7a68f465f4d"
+  },
+  {
+   "path": "skills/skill-network/references/skill-map.md",
+   "bytes": 9044,
+   "sha256": "1caa504197b4db1e33e78c6821e42a890a8ab49ccbd702ba929dbe3f9f602f50"
+  },
+  {
+   "path": "verify-pack.ps1",
+   "bytes": 2017,
+   "sha256": "e474feea761a795fd6d3ff6078323b44dc374a261f41406c84d8e29fed844564"
+  },
+  {
+   "path": "verify_pack.py",
+   "bytes": 4744,
+   "sha256": "b3608278616ac48150e7e9c41c591cfbd64527c31dcaace3cbe96a6e0f4b9be1"
+  },
+  {
+   "path": "wheels/pymupdf-1.28.0-cp310-abi3-win_amd64.whl",
+   "bytes": 19772869,
+   "sha256": "5d375723c2f82fddfb91fcb629f2515b52c6163a5643c3446163f04f6ef35ab3"
+  }
+ ]
+}

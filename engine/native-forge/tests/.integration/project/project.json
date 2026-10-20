@@ -1,0 +1,22 @@
+{
+  "pages": [
+    1
+  ],
+  "schema_version": 1,
+  "source": {
+    "path": "E:\\PDF\\_ZH\\native-forge\\tests\\.integration\\source.pdf",
+    "sha256": "dff5b62fe0ec814f11d16e4b2168d42f0933eb5c8f39d2ef63d46dfbdb16e85b"
+  },
+  "status": "draft",
+  "templates": {
+    "elegantbook.cls": {
+      "path": "E:\\PDF\\_ZH\\native-forge\\templates\\elegantbook.cls",
+      "sha256": "d2cdb802b3de46b1d659d1a8eb36979aecd761402d3e95296936f433f97549eb"
+    },
+    "nativeforge.sty": {
+      "path": "E:\\PDF\\_ZH\\native-forge\\templates\\nativeforge.sty",
+      "sha256": "0f83c5793e0249b9139904ae9e4f8483a3211428529b9b66767859efe58dc72b"
+    }
+  },
+  "title": "Native redraw integration"
+}

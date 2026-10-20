@@ -1,0 +1,45 @@
+{
+  "bbox": [
+    20,
+    60,
+    280,
+    260
+  ],
+  "edges": [
+    {
+      "from": "start",
+      "to": "gate"
+    },
+    {
+      "from": "gate",
+      "label": "通过",
+      "to": "done"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "start",
+      "label": "读取原稿",
+      "shape": "rectangle",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "gate",
+      "label": "原生核验",
+      "shape": "diamond",
+      "x": 0,
+      "y": -2
+    },
+    {
+      "id": "done",
+      "label": "发布中文 PDF",
+      "shape": "ellipse",
+      "x": 0,
+      "y": -4
+    }
+  ],
+  "rationale": "Actual compiler integration fixture",
+  "source_page": 1,
+  "type": "flowchart"
+}

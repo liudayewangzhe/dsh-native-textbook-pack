@@ -1,0 +1,139 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{nativeforge}[2026/10/12 Native Chinese textbook composition]
+\RequirePackage{unicode-math}
+\setmathfont{NewCMMath-Regular.otf}
+% Legacy bm/amsbsy mathchar paths cannot address Unicode math glyph slots.
+\renewcommand{\boldsymbol}[1]{\symbfit{#1}}
+\renewcommand{\bm}[1]{\symbfit{#1}}
+\RequirePackage{booktabs}
+\RequirePackage{tabularx}
+\RequirePackage{longtable}
+\RequirePackage{graphicx}
+\RequirePackage{float}
+\RequirePackage{placeins}
+\RequirePackage{needspace}
+\RequirePackage{fvextra}
+\RequirePackage{xurl}
+\setmonofont{NewCMMono10-Regular.otf}
+\setCJKmonofont{FandolFang-Regular.otf}
+\fvset{breaklines=true,breakanywhere=true,tabsize=4,fontsize=\small}
+\RequirePackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc}
+% XeTeX rasterizes the upstream spherical bullet shading; solid paths stay native.
+\renewcommand*{\eitemi}{\tikz[baseline=-0.6ex]\fill[structurecolor] (0,0) circle (2pt);}
+\renewcommand*{\eitemii}{\tikz[baseline=-0.6ex]\fill[structurecolor] (0,0) circle (1.6pt);}
+\RequirePackage{chemfig}
+\RequirePackage[version=4]{mhchem}
+% Cancelled terms and struck-through text: derivations in physics books strike out
+% terms that cancel, and reproducing that is content, not decoration.
+\RequirePackage{cancel}
+\RequirePackage[normalem]{ulem}
+\newcommand{\bv}[1]{\symbf{#1}}
+\newcommand{\dv}[1]{\symbf{#1}}
+\setlength{\emergencystretch}{2em}
+\setlength{\textfloatsep}{13pt plus 3pt minus 2pt}
+\setlength{\intextsep}{11pt plus 3pt minus 2pt}
+\setlength{\skip\footins}{14pt plus 3pt minus 2pt}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.8}
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{3}
+\renewcommand{\arraystretch}{1.18}
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+\hypersetup{colorlinks=true,linkcolor=structurecolor,citecolor=structurecolor,urlcolor=structurecolor}
+\makeatletter
+\setlength{\@fptop}{0pt}
+\setlength{\@fpsep}{12pt}
+\setlength{\@fpbot}{0pt plus 1fil}
+\makeatother
+% The engine overrides this only for projects with explicit layout metadata.
+\newcommand{\NFGeometrySettings}{top=23mm,bottom=23mm,left=23mm,right=23mm,headsep=5mm,footskip=10mm}
+\AtBeginDocument{\expandafter\geometry\expandafter{\NFGeometrySettings}}
+
+% Semantic notes remain native text. Their actual positions are recorded in .aux.
+\RequirePackage{marginfix}
+\RequirePackage[strict]{changepage}
+\RequirePackage{zref-savepos}
+\RequirePackage{zref-abspage}
+\newcommand{\NFNoteFontSize}{9}
+\newcommand{\NFNoteLeading}{13}
+\newsavebox{\nfNoteBox}
+\makeatletter
+\zref@addprop{savepos}{abspage}
+\newcommand{\nfNoteBody}[3]{%
+  \fontsize{\NFNoteFontSize}{\NFNoteLeading}\selectfont
+  \raggedright\setlength{\parindent}{0pt}%
+  \noindent\hypertarget{note-#1}{}\zsavepos{nf-note-start-#1}%
+  \hyperlink{note-ref-#1}{\textcolor{structurecolor}{\textbf{#2}}}\enspace
+  #3\par\zsavepos{nf-note-end-#1}%
+}
+\newcommand{\nfDeclareMarginNote}[3]{%
+  \expandafter\gdef\csname nf@margin@#1\endcsname{\nfNoteBody{#1}{#2}{#3}}%
+}
+% A margin note whose evidence block already contains its own text: place it at the note's
+% own list position instead of at an nfnotemark.  Keeps a real note id for the layout report.
+\newcommand{\nfPositionMarginNote}[3]{%
+  \setbox\nfNoteBox=\vbox{\hsize=\marginparwidth\linewidth=\hsize
+    \nfNoteBody{#1}{#2}{#3}}%
+  \typeout{NFNOTE-METRIC #1 height=\number\dimexpr\ht\nfNoteBox+\dp\nfNoteBox\relax\space width=\number\wd\nfNoteBox}%
+  \ifdim\dimexpr\ht\nfNoteBox+\dp\nfNoteBox\relax>\textheight
+    \PackageWarning{nativeforge}{NFNOTE-OVERSIZE #1; use placement=block}%
+  \fi
+  \marginpar{\usebox{\nfNoteBox}}%
+}
+\DeclareRobustCommand{\nfnotemark}[2]{%
+  \ifhmode\unskip\nobreak\fi
+  \hypertarget{note-ref-#1}{}\zsavepos{nf-mark-#1}%
+  \hyperlink{note-#1}{\textsuperscript{#2}}%
+  \ifcsname nf@margin@#1\endcsname
+    \setbox\nfNoteBox=\vbox{\hsize=\marginparwidth\linewidth=\hsize
+      \csname nf@margin@#1\endcsname}%
+    \typeout{NFNOTE-METRIC #1 height=\number\dimexpr\ht\nfNoteBox+\dp\nfNoteBox\relax\space width=\number\wd\nfNoteBox}%
+    \ifdim\dimexpr\ht\nfNoteBox+\dp\nfNoteBox\relax>\textheight
+      \PackageWarning{nativeforge}{NFNOTE-OVERSIZE #1; use placement=block}%
+    \fi
+    \marginpar{\usebox{\nfNoteBox}}%
+  \fi
+}
+\xeCJKsetup{NoBreakCS+={\nfnotemark}}
+\newcommand{\nfBlockNote}[3]{%
+  \FloatBarrier
+  \par\addvspace{0.65\baselineskip}\begingroup
+  \setlength{\parskip}{0.3\baselineskip}%
+  \noindent\textcolor{structurecolor}{\rule{2em}{0.4pt}}\par\nobreak
+  \nfNoteBody{#1}{#2}{#3}%
+  \endgroup\par\addvspace{0.65\baselineskip}%
+  \FloatBarrier
+}
+\AtEndDocument{%
+  \dumpmargins
+  \ifx\mfx@marginlist\@empty\else
+    \PackageWarning{nativeforge}{NF-MARGIN-QUEUE-NOT-EMPTY}%
+  \fi
+}
+\makeatother
+% Reserve the side column while native wide objects use it. No font scaling.
+\newenvironment{nfFullWidth}{%
+  \par\blockmargin
+  \begin{adjustwidth*}{0pt}{-\dimexpr\marginparwidth+\marginparsep\relax}%
+}{%
+  \end{adjustwidth*}\unblockmargin\par
+}
+
+% Native Unicode glyph coverage; preserve literal code grid.
+\newfontface\nfTextSymbolFont{STIXTwoMath-Regular.otf}[Scale=MatchLowercase]
+\newfontface\nfMonoSymbolFont{DejaVuSansMono.ttf}[Scale=MatchLowercase]
+\DeclareRobustCommand{\nfTextGlyph}[1]{\ifmmode\text{\nfTextSymbolFont\char"#1}\else{\nfTextSymbolFont\char"#1}\fi}
+\DeclareRobustCommand{\nfMonoGlyph}[1]{\makebox[\fontcharwd\font"20][c]{{\nfMonoSymbolFont\char"#1}}}
+\fvset{codes*={\catcode"2295=\active},defineactive*={\begingroup\lccode`\~="2295\lowercase{\endgroup\def~}{\nfMonoGlyph{2295}}}}
+\AddToHook{begindocument/end}{%
+\let\nfOriginalCheckmark\checkmark
+\DeclareRobustCommand{\checkmark}{\ensuremath{\nfOriginalCheckmark}}
+\renewcommand{\mathbf}[1]{\symbfup{#1}}
+}
+

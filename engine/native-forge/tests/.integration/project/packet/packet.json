@@ -1,0 +1,10 @@
+{
+  "pages": {
+    "1": {
+      "json_sha256": "29cff77819f1ef1bc51686baa5053cb769c1f21aafddc392bc54e350d9da174e",
+      "png_sha256": "d544b5a5716040d5996b9980ffde618a2d0fb8e2c9eb38ab74138cd9fa0ba1a7"
+    }
+  },
+  "schema_version": 1,
+  "source_sha256": "dff5b62fe0ec814f11d16e4b2168d42f0933eb5c8f39d2ef63d46dfbdb16e85b"
+}

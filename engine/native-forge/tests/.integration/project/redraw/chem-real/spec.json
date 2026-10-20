@@ -1,0 +1,12 @@
+{
+  "bbox": [
+    20,
+    60,
+    280,
+    260
+  ],
+  "rationale": "Actual compiler integration fixture",
+  "source_page": 1,
+  "tex": "\\chemfig{H-C(-[2]H)(-[6]H)-H}",
+  "type": "chemfig"
+}

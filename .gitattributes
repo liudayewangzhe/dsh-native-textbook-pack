@@ -1,0 +1,31 @@
+# 统一换行，保证 MANIFEST.json 校验在不同平台 / 不同 core.autocrlf 下结果一致。
+# verify_pack.py 会对所有文件做 CRLF -> LF 归一化后再算 SHA256。
+* text=auto
+
+*.md    text eol=lf
+*.py    text eol=lf
+*.json  text eol=lf
+*.yaml  text eol=lf
+*.yml   text eol=lf
+*.txt   text eol=lf
+*.tex   text eol=lf
+*.sty   text eol=lf
+*.cls   text eol=lf
+*.sh    text eol=lf
+*.jsonl text eol=lf
+
+# Windows 脚本必须保留 CRLF（cmd.exe 对 LF-only 批处理不友好）
+*.ps1   text eol=crlf
+*.cmd   text eol=crlf
+*.bat   text eol=crlf
+
+# 二进制，禁止任何换行/编码转换
+*.whl   binary
+*.pyd   binary
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.pdf   binary
+*.zst   binary
+*.zip   binary

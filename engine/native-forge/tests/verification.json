@@ -1,0 +1,29 @@
+{
+  "actual_xelatex_smokes": {
+    "chemfig": {
+      "pages": 1,
+      "raster_occurrences": 0,
+      "vector_paths": 4,
+      "visually_checked": true
+    },
+    "flowchart": {
+      "pages": 1,
+      "raster_occurrences": 0,
+      "vector_paths": 7,
+      "visually_checked": true
+    },
+    "xy_plot": {
+      "pages": 1,
+      "raster_occurrences": 0,
+      "vector_paths": 11,
+      "visually_checked": true
+    }
+  },
+  "engine_sha256": "81ef9cb9d9161cc837739ea0803f93c04a71efc716ef2b90df146f6704d22ebb",
+  "python": "3.12.14",
+  "redraw_sha256": "ccb9cac4673504c8d68d5d8a5fca31b1d83bf3ac7ee810156ea95d27b9bc4c07",
+  "scope": "Engine regressions and standalone redraw smokes; pilot semantic acceptance owned by lead/workers",
+  "status": "pass",
+  "test_command": "bundled Python -m unittest discover -s E:/PDF/_ZH/native-forge/tests -q",
+  "unittest_count": 64
+}

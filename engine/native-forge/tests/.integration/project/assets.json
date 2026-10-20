@@ -1,0 +1,74 @@
+{
+  "chem-real": {
+    "bbox": [
+      20.0,
+      60.0,
+      280.0,
+      260.0
+    ],
+    "kind": "native_pdf",
+    "path": "redraw/chem-real/figure.pdf",
+    "rationale": "Actual compiler integration fixture",
+    "redraw": {
+      "engine_sha256": "ccb9cac4673504c8d68d5d8a5fca31b1d83bf3ac7ee810156ea95d27b9bc4c07",
+      "redraw_sha256": "8da6328ad01fe5c7f04c0916025f42fa8787247f058ef2a35dc690c0577a3955",
+      "source_sha256": "dff5b62fe0ec814f11d16e4b2168d42f0933eb5c8f39d2ef63d46dfbdb16e85b",
+      "spec_path": "redraw/chem-real/spec.json",
+      "spec_sha256": "5aff06984d32d8688e1f051457f3578e0c8f14394d6a46c0ada223dd765663cd",
+      "tex_path": "redraw/chem-real/figure.tex",
+      "tex_sha256": "65f8b6ebbaf64ddc0931f3bdbe8dc715cef4d614dfab77da22bbf38dc16166d8",
+      "type": "chemfig"
+    },
+    "role": "figure",
+    "sha256": "f4431ff9b5a35bbd9d2435c60c90a3963db55855876291f054f27a811c1eb75e",
+    "source_page": 1
+  },
+  "flow-real": {
+    "bbox": [
+      20.0,
+      60.0,
+      280.0,
+      260.0
+    ],
+    "kind": "native_pdf",
+    "path": "redraw/flow-real/figure.pdf",
+    "rationale": "Actual compiler integration fixture",
+    "redraw": {
+      "engine_sha256": "ccb9cac4673504c8d68d5d8a5fca31b1d83bf3ac7ee810156ea95d27b9bc4c07",
+      "redraw_sha256": "ca191e26bd85f363f0d2aaaca5d6e992a0c2bca2474fc449fe34c3d84206b3d9",
+      "source_sha256": "dff5b62fe0ec814f11d16e4b2168d42f0933eb5c8f39d2ef63d46dfbdb16e85b",
+      "spec_path": "redraw/flow-real/spec.json",
+      "spec_sha256": "96822812bf744eea384335863c67edf2becd1ecf238d3fda971ecd492dd68504",
+      "tex_path": "redraw/flow-real/figure.tex",
+      "tex_sha256": "9c4dd75f08eca75981b072b66a57546aa81bf5adc2ba1265a28f4897a19034c6",
+      "type": "flowchart"
+    },
+    "role": "figure",
+    "sha256": "5e0f247c071421302f40aa85f304216016f550f509b0bbc3a9ca74602cb9f534",
+    "source_page": 1
+  },
+  "xy-real": {
+    "bbox": [
+      20.0,
+      60.0,
+      280.0,
+      260.0
+    ],
+    "kind": "native_pdf",
+    "path": "redraw/xy-real/figure.pdf",
+    "rationale": "Actual compiler integration fixture",
+    "redraw": {
+      "engine_sha256": "ccb9cac4673504c8d68d5d8a5fca31b1d83bf3ac7ee810156ea95d27b9bc4c07",
+      "redraw_sha256": "6645b9e387aba76ac0143139cfede1add2ccf464766965d93b2708b808d20cd6",
+      "source_sha256": "dff5b62fe0ec814f11d16e4b2168d42f0933eb5c8f39d2ef63d46dfbdb16e85b",
+      "spec_path": "redraw/xy-real/spec.json",
+      "spec_sha256": "e6c18eaf39491da7972ed29749264b6cf3a0bbc83b75274365ffa464e72fcd9f",
+      "tex_path": "redraw/xy-real/figure.tex",
+      "tex_sha256": "d477097cddd16e6e3550b72c3b22fa0e5211ad5c0a9d9e010cdfdc591a6513a3",
+      "type": "xy_plot"
+    },
+    "role": "figure",
+    "sha256": "7e8993d7829ea856ff4bf32902515f888a004eff5034ae4f994131c2c0e0a186",
+    "source_page": 1
+  }
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "DeepSeek Claude Subagent"
+  short_description: "First-consider DeepSeek for large mechanical reading, writing, and edit work."
+  default_prompt: "Use DeepSeek Flash through Claude Code as a bounded subagent for large PDFs/text/logs, supported image inputs, bulk extraction, repetitive writing or code edits with Write permission, second-model review, and monitor loops while Codex supervises and verifies."

@@ -1,0 +1,25 @@
+# 完整性校验 workflow（可选启用）。
+# 发布凭据缺少 GitHub 的 workflow scope，因此没有直接放在 .github/workflows/ 下。
+# 启用方式：把它复制到 .github/workflows/verify.yml，并确保推送凭据具备 workflow scope
+# （例如 gh auth refresh -s workflow），之后的 push/PR 会自动运行 python verify_pack.py --strict。
+name: verify
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  manifest:
+    name: MANIFEST 完整性
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: 校验 MANIFEST.json
+        run: python verify_pack.py --strict

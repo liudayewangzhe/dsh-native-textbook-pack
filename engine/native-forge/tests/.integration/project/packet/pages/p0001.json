@@ -1,0 +1,37 @@
+{
+  "blocks": [
+    {
+      "bbox": [
+        30.0,
+        28.175,
+        166.928,
+        43.289
+      ],
+      "id": "p0001-b0000",
+      "page": 1,
+      "text": "Native redraw source fixture"
+    }
+  ],
+  "fonts": [
+    {
+      "basefont": "Helvetica",
+      "ext": "n/a",
+      "type": "Type1"
+    }
+  ],
+  "height": 300.0,
+  "images": [],
+  "mediabox": [
+    0.0,
+    0.0,
+    400.0,
+    300.0
+  ],
+  "page": 1,
+  "page_sha256": "042c03756009a9f830215b558173086e36762368e21453d192330b29a570bdc6",
+  "raster_occurrences": 0,
+  "rotation": 0,
+  "vector_path_count": 1,
+  "visible_raster_occurrences": 0,
+  "width": 400.0
+}

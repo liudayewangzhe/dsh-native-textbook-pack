@@ -1,0 +1,23 @@
+{
+  "C:\\Users\\ltllt\\.agents\\skills": {
+    "count": 81,
+    "duplicates_within_root": [],
+    "descriptions_over1024": [],
+    "new_skill": []
+  },
+  "routes_verified": true,
+  "system_quick_validate": "passed using existing Python3.8 with PyYAML6.0.2",
+  "skill_cleaner": "Unavailable: configured D:/Temp/agent-scripts/skills/skill-cleaner/scripts/skill-cleaner.ts missing; targeted skill and archive searches found no callable skill-cleaner. These inventory checks are fallback, not a claimed skill-cleaner run.",
+  "C:\\Users\\ltllt\\.codex\\skills": {
+    "count": 67,
+    "duplicates_within_root": [],
+    "descriptions_over1024": [],
+    "new_skill": [
+      {
+        "folder": "native-textbook",
+        "name": "native-textbook",
+        "description_length": 161
+      }
+    ]
+  }
+}

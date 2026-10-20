@@ -1,0 +1,14 @@
+{
+  "pages": {
+    "1": {
+      "json_sha256": "15cca57b38268c15ad1fdace5fa8300a83eea7a5ef7b52de209c80f2d7564717",
+      "png_sha256": "bfa4bfa754199ab0055416d6fcdd37711f63568d5175f94ad327a96248b3a266"
+    },
+    "2": {
+      "json_sha256": "a549dedf6b1659468610a55e8b3ed940d396f3c9124d6dfd30db6e64cc1ee540",
+      "png_sha256": "a63324db197ee9b842224e1556b59d0a7fdd35308ce17aa755821ba2956e9053"
+    }
+  },
+  "schema_version": 1,
+  "source_sha256": "b0f64ad44771774cdf033049382b2a8bb5f4aba8d2c2322bc840f4477d88bfea"
+}

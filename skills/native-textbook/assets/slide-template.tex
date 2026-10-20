@@ -1,0 +1,89 @@
+% !TeX program = xelatex
+% Minimal native PDF slide starter. Adapt physical size and all body positions
+% to the source; these 4:3 dimensions and fonts are a runnable example.
+\documentclass[UTF8,fontset=none,10pt]{ctexart}
+\usepackage[paperwidth=128mm,paperheight=96mm,margin=0mm]{geometry}
+\usepackage{fontspec,amsmath,amssymb,tikz,hyperref}
+\usetikzlibrary{arrows.meta}
+\setmainfont{TeX Gyre Termes}
+\IfFontExistsTF{Microsoft YaHei}{\setCJKmainfont{Microsoft YaHei}}{\setCJKmainfont{FandolHei-Regular}}
+\definecolor{barred}{HTML}{A30000}
+\definecolor{titlered}{HTML}{CC0000}
+\definecolor{bandgray}{HTML}{D7D7D7}
+\definecolor{headgray}{HTML}{F1F1F1}
+\definecolor{bulletblue}{HTML}{008CA8}
+\definecolor{waveblue}{HTML}{518DDD}
+\hypersetup{pdftitle={原生中文课件模板},colorlinks=true,linkcolor=red}
+\pagestyle{empty}
+\setlength\parindent{0pt}
+\setlength\parskip{0pt}
+\newcommand{\SlideAuthor}{作者}
+\newcommand{\SlideCourse}{课程名称}
+\newcommand{\SlideYear}{学年}
+\newcommand{\SlideTotal}{3}
+\newcounter{slide}
+% T: object ID, left x mm, top y mm, width mm, font pt, content.
+% IDs are source-review handles; the node has an explicit real font context.
+\newcommand{\T}[6]{%
+  \node[anchor=north west,inner sep=0pt,outer sep=0pt,text width=#4mm,align=left,font=\fontsize{#5}{13.3}\selectfont] at (#2,#3) {#6};
+}
+% E: object ID, centre x/y mm, native LaTeX math, font pt.
+\newcommand{\E}[5]{%
+  \node[anchor=center,inner sep=0pt,outer sep=0pt,font=\fontsize{#5}{#5}\selectfont] at (#2,#3) {$\displaystyle #4$};
+}
+% B: object ID, top y mm, optional emphasis prefix, content.
+\newcommand{\B}[4]{%
+  \fill[bulletblue] (7.2,#2+1.65) circle (0.48mm);
+  \T{#1}{10.6}{#2}{113.4}{9.5}{#3#4}%
+}
+\newcommand{\Slide}[3]{%
+  \stepcounter{slide}\pdfbookmark[0]{第\theslide 页：#2}{slide-\theslide}%
+  \begin{tikzpicture}[remember picture,overlay,x=1mm,y=-1mm]
+  \begin{scope}[shift={(current page.north west)}]
+    \fill[barred] (0,0) rectangle (64.2,3.13);
+    \fill[bandgray] (64.2,0) rectangle (128,3.13);
+    \node[white,anchor=east,inner sep=0pt,font=\fontsize{5.2}{6}\selectfont] at (62.8,1.55) {#1};
+    % Empty title means no title band. Do not write a space as the title.
+    \if\relax\detokenize{#2}\relax\else
+      \fill[headgray] (0,3.13) rectangle (128,13.03);
+      \T{title}{3.4}{5.5}{121}{14.2}{\color{titlered}#2}
+    \fi
+    \fill[barred] (0,93.3) rectangle (42.3,96);
+    \fill[headgray] (42.3,93.3) rectangle (85.3,96);
+    \fill[bandgray] (85.3,93.3) rectangle (128,96);
+    \node[white,font=\fontsize{4.8}{5}\selectfont] at (21.15,94.6) {\SlideAuthor};
+    \node[barred,font=\fontsize{4.8}{5}\selectfont] at (63.8,94.6) {\SlideCourse};
+    \node[barred,anchor=east,inner sep=0pt,font=\fontsize{4.8}{5}\selectfont] at (117.8,94.6) {\SlideYear};
+    \node[barred,anchor=east,inner sep=0pt,font=\fontsize{4.8}{5}\selectfont] at (126.5,94.6) {\theslide\,/\,\SlideTotal};
+    #3
+  \end{scope}\end{tikzpicture}\null\clearpage
+}
+\begin{document}
+\Slide{}{}{
+  \node[text=titlered,font=\fontsize{16}{21}\selectfont] at (64,38) {原生中文课件};
+  \node[font=\fontsize{9.5}{13.3}\selectfont] at (64,60) {可编辑数学与矢量示意图};
+}
+\Slide{示例}{原生数学}{
+  \B{matrix-label}{22}{}{三维向量的分量按来源顺序保留：}
+  \E{matrix}{65}{38}{v=\begin{bmatrix}v_1\\v_2\\v_3\end{bmatrix}}{10}
+  \B{rms-label}{52}{}{均方根：完整保留极限、分母和积分上下限}
+  \E{rms}{65}{67}{\left(\lim_{T\to\infty}\frac1T\int_0^T u(t)^2\,dt\right)^{1/2}}{10}
+  \T{native-math}{10.6}{81}{113.4}{9.5}{直接排版数学：$\dfrac{dv}{dt}$，不拆成SVG字形文本框。}
+}
+\Slide{示例}{原生矢量图}{
+  \B{geometry}{22}{}{矩形与三角形的面积均为 $1$}
+  \begin{scope}[shift={(43,63)},font=\fontsize{9}{11}\selectfont]
+    \draw[black!65,-{Stealth[length=1.5mm]}] (-17,0)--(17,0) node[right] {$t$};
+    \draw[waveblue,line width=.6pt] (-4,0)--(-4,-20)--(4,-20)--(4,0);
+    \node[above] at (0,-20) {$\epsilon$};
+    \node[left] at (-4,-10) {$1/\epsilon$};\node[below] at (0,0) {$t=0$};
+  \end{scope}
+  \begin{scope}[shift={(92,63)},font=\fontsize{9}{11}\selectfont]
+    \draw[black!65,-{Stealth[length=1.5mm]}] (-17,0)--(17,0) node[right] {$t$};
+    \draw[waveblue,line width=.6pt] (-8,0)--(0,-20)--(8,0);
+    \node[above] at (0,-20) {$2\epsilon$};
+    \node[left] at (-8,-10) {$1/\epsilon$};\node[below] at (0,0) {$t=0$};
+  \end{scope}
+  \T{contract}{10.6}{79}{113.4}{9.5}{图形合同：宽度、高度、轴、标签和图注一起核验。}
+}
+\end{document}
