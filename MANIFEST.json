@@ -1,9 +1,9 @@
 {
  "name": "dsh-native-textbook-pack",
- "generated_at": "2026-10-20T14:23:20",
+ "generated_at": "2026-10-20T14:29:15",
  "hash_mode": "sha256-lf-normalized",
  "file_count": 245,
- "total_bytes": 29795769,
+ "total_bytes": 29795975,
  "total_mb": 28.42,
  "split_limit_mb": 500.0,
  "parts": [
@@ -756,8 +756,8 @@
   },
   {
    "path": "examples/commands.ps1",
-   "bytes": 3365,
-   "sha256": "788a28aaa1543c5301ea9673d8d84fc84d8e1096a0fb5f9cef87cd0b122d31af"
+   "bytes": 3368,
+   "sha256": "3a0cf8de4e346a6d6ba2e407e436e2065750c3c3ceae1ea9ced4f72dfc451ca1"
   },
   {
    "path": "examples/project-skeleton/README.md",
@@ -1481,8 +1481,8 @@
   },
   {
    "path": "verify-pack.ps1",
-   "bytes": 2017,
-   "sha256": "e474feea761a795fd6d3ff6078323b44dc374a261f41406c84d8e29fed844564"
+   "bytes": 2220,
+   "sha256": "2ca416e120301909e0f5bb152897aa2825c70f6a6ffe8932b70fadf2ca4d2872"
   },
   {
    "path": "verify_pack.py",
