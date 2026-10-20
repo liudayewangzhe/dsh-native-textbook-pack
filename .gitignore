@@ -22,3 +22,6 @@ desktop.ini
 
 # 临时
 _tmp*/
+
+# 第三方二进制扩展：*.py[cod] 会误伤 .pyd，必须显式放行
+!engine/native-forge/third_party/qr/zxingcpp/*.pyd

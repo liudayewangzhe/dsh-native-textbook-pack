@@ -8259,11 +8259,17 @@ box w,asc,desc= 0.91 1.8 1.61
 
 ```text
 <?xml version="1.0" encoding="UTF-8"?>
+
 <svg xmlns="http://www.w3.org/2000/svg" width="90.90" height="341.80" viewBox="0 0 90.90 341.80">
+
 <g font-family="Cambria Math" fill="#000000" transform="translate(0 180.40)">
+
 <text x="1.89" y="0.00" font-size="205.00" font-family="Cambria Math">∫</text>
+
 <text x="-1.89" y="136.40" font-size="100.00" font-family="Cambria Math" font-style="italic">a</text>
+
 <text x="56.71" y="86.40" font-size="62.00" font-family="Cambria Math" font-style="italic">b</text>
+
 </g></svg>
 
 ```
@@ -8460,11 +8466,17 @@ image/png image, 1008x756 px, 47542 bytes
 
 ```text
 <?xml version="1.0" encoding="UTF-8"?>
+
 <svg xmlns="http://www.w3.org/2000/svg" width="718.80" height="341.80" viewBox="0 0 718.80 341.80">
+
 <g font-family="Cambria Math" fill="#000000" transform="translate(0 180.40)">
+
 <text x="1.89" y="0.00" font-size="205.00" font-family="Cambria Math">∫</text>
+
 <text x="-1.89" y="136.40" font-size="100.00" font-family="Cambria Math" font-style="italic">a</text>
+
 <text x="56.71" y="86.40" font-size="62.00" font-family="Cambria Math" font-style="italic">b</text>
+
 <text x="90.90" y="0.00" font-size="100.00" font-family="Cambria Math" font-style="italic">f</te
 …（本段共 1926 字符，此处截断，仅保留前 600 字符）
 ```

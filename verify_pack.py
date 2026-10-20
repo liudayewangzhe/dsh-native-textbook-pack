@@ -28,8 +28,15 @@ SKIP_FILES = {"MANIFEST.json"}
 
 
 def normalized(data: bytes) -> bytes:
-    """CRLF -> LF，消除 git 检出换行差异。"""
-    return data.replace(b"\r\n", b"\n")
+    """把所有换行序列归一化为 LF（幂等）。
+
+    转写记录里可能残留 PDF 原始流带来的 `\\r\\r\\n` 之类非标准序列；
+    git 的 eol 归一化与单遍 replace 对它们的结果不同，所以这里先反复折叠
+    连续的 CR 再统一处理，保证工作树与 clone 检出的哈希结果一致。
+    """
+    while b"\r\r\n" in data:
+        data = data.replace(b"\r\r\n", b"\n")
+    return data.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
 
 
 def sha256_normalized(path: str) -> str:

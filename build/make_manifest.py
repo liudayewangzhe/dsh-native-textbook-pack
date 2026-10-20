@@ -21,8 +21,12 @@ SKIP_DIRS = {".git", "__pycache__", ".pytest_cache", "pylibs", ".venv", "venv"}
 
 
 def normalized_bytes(path: str) -> bytes:
+    """读取文件并做幂等的换行归一化（与 verify_pack.py 必须完全一致）。"""
     with open(path, "rb") as fh:
-        return fh.read().replace(b"\r\n", b"\n")
+        data = fh.read()
+    while b"\r\r\n" in data:
+        data = data.replace(b"\r\r\n", b"\n")
+    return data.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
 
 
 def sha256_normalized(data: bytes) -> str:

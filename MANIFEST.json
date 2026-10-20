@@ -1,10 +1,10 @@
 {
  "name": "dsh-native-textbook-pack",
- "generated_at": "2026-10-20T13:52:21",
+ "generated_at": "2026-10-20T14:23:20",
  "hash_mode": "sha256-lf-normalized",
  "file_count": 245,
- "total_bytes": 29795071,
- "total_mb": 28.41,
+ "total_bytes": 29795769,
+ "total_mb": 28.42,
  "split_limit_mb": 500.0,
  "parts": [
   {
@@ -276,8 +276,8 @@
   },
   {
    "path": ".gitignore",
-   "bytes": 248,
-   "sha256": "348de0c2b6ef636a73f53d7a3a900f9b46fd38b573ef1844cf6ea3086b441893"
+   "bytes": 375,
+   "sha256": "2ff5577fef5cc02e7dbeb91da667d0888569ecd07d28b022892ba49b6c0815c8"
   },
   {
    "path": "LICENSE",
@@ -321,8 +321,8 @@
   },
   {
    "path": "build/make_manifest.py",
-   "bytes": 3433,
-   "sha256": "f66815e466775fc57e5001bf46d7c41f5fafc0e67666d2847885c019cb3a7f7d"
+   "bytes": 3645,
+   "sha256": "21bb30d8d66e533fddf115b80bf93e6be43499e51391428a514a88dd0cf747fb"
   },
   {
    "path": "build/make_transcripts.py",
@@ -497,7 +497,7 @@
   {
    "path": "engine/native-forge/tests/.integration/chem-real.png",
    "bytes": 1381,
-   "sha256": "5cc2958ebbbb37462eda49e14b62384d66d78b977c6ab38a08df9241955aa7a5"
+   "sha256": "a1571ec46a3729da4c798b6182c737e68cbe323cdec045893861b39957d3a80a"
   },
   {
    "path": "engine/native-forge/tests/.integration/flow-real.json",
@@ -507,7 +507,7 @@
   {
    "path": "engine/native-forge/tests/.integration/flow-real.png",
    "bytes": 8556,
-   "sha256": "232e4c3135f95b3332bca3d5600b13dc856eb6eb08242615d450cbfa84e3e474"
+   "sha256": "48fb9d8437ec5b1f13451f3dc0001fd4c2b322b9f883d42f501bc57c5c83967f"
   },
   {
    "path": "engine/native-forge/tests/.integration/project/assets.json",
@@ -532,7 +532,7 @@
   {
    "path": "engine/native-forge/tests/.integration/project/packet/pages/p0001.png",
    "bytes": 6633,
-   "sha256": "874bd51f52374dba31b05eac1d07d1fac3b0770747fd08e8ba7092e374067ba0"
+   "sha256": "fda69d23ec23826f061ba7ea31bf1b5a699dfe14f24636377569fd56d157abbf"
   },
   {
    "path": "engine/native-forge/tests/.integration/project/project.json",
@@ -552,7 +552,7 @@
   {
    "path": "engine/native-forge/tests/.integration/project/redraw/chem-real/figure.pdf",
    "bytes": 2513,
-   "sha256": "f4431ff9b5a35bbd9d2435c60c90a3963db55855876291f054f27a811c1eb75e"
+   "sha256": "91c37474d555928ba52dc3805593abd604d1aca839d9687aff6b6a261d2f385e"
   },
   {
    "path": "engine/native-forge/tests/.integration/project/redraw/chem-real/figure.tex",
@@ -587,7 +587,7 @@
   {
    "path": "engine/native-forge/tests/.integration/project/redraw/flow-real/figure.pdf",
    "bytes": 10039,
-   "sha256": "5e0f247c071421302f40aa85f304216016f550f509b0bbc3a9ca74602cb9f534"
+   "sha256": "b52f15e26cc64d37dc3b4cdca6786d1db8be6caa76ff262e97509ee0828bd173"
   },
   {
    "path": "engine/native-forge/tests/.integration/project/redraw/flow-real/figure.tex",
@@ -622,7 +622,7 @@
   {
    "path": "engine/native-forge/tests/.integration/project/redraw/xy-real/figure.pdf",
    "bytes": 13603,
-   "sha256": "7e8993d7829ea856ff4bf32902515f888a004eff5034ae4f994131c2c0e0a186"
+   "sha256": "6fff562cedeee93794a1f4c89c2307299c8bd0c0ea9c5edee48a3f30026ab3c4"
   },
   {
    "path": "engine/native-forge/tests/.integration/project/redraw/xy-real/figure.tex",
@@ -657,7 +657,7 @@
   {
    "path": "engine/native-forge/tests/.integration/xy-real.png",
    "bytes": 13008,
-   "sha256": "74d8c1b30afe729e3b138ece474b38967f2fa93cae41cec0a7ee71e8da43d871"
+   "sha256": "82f8e543a3197b66751215cc406b25e40850d707ffcbdd81107b1a2d9e1329f6"
   },
   {
    "path": "engine/native-forge/tests/test_cli_acceptance.py",
@@ -741,8 +741,8 @@
   },
   {
    "path": "engine/native-forge/third_party/qr/zxingcpp/zxingcpp.pyd",
-   "bytes": 1823186,
-   "sha256": "8bf8e030dd3512660ace807454ed855952a0e2ac8bab06265a47106d274a637d"
+   "bytes": 1823155,
+   "sha256": "7af567c89053c80f098663a5abe54919d46dfc5d31ac03950c03e5a3fc55bf99"
   },
   {
    "path": "engine/native-forge/third_party/qr/zxingcpp/zxingcpp.pyi",
@@ -787,7 +787,7 @@
   {
    "path": "examples/project-skeleton/packet/pages/p0001.png",
    "bytes": 83561,
-   "sha256": "6a26e4588ec6d04d0b710338a6b154bee73433d80efdef69c774d93943987f77"
+   "sha256": "927b932731eb0305c35f5da6433f10884591c2b0412cdb8a95f203818adaa5f8"
   },
   {
    "path": "examples/project-skeleton/packet/pages/p0002.json",
@@ -797,7 +797,7 @@
   {
    "path": "examples/project-skeleton/packet/pages/p0002.png",
    "bytes": 27344,
-   "sha256": "056c3a842efd6effaa3070de31a89be6b29d16496f8944a456cbd92406a206ea"
+   "sha256": "0c2ba6bd8d54382cd7b178c3bfdde400b8afd5e7c49647327899c89b7a64e7c6"
   },
   {
    "path": "examples/project-skeleton/project.json",
@@ -807,7 +807,7 @@
   {
    "path": "examples/project-skeleton/source.pdf",
    "bytes": 6812,
-   "sha256": "8368d1f8f18628b9956a345ee586495987936f3ab07b9c061127ea4bed98f64a"
+   "sha256": "3d78055b41f3cbc39771da48595cd0707e5b539b3614dbaf5c950950fd9544b3"
   },
   {
    "path": "examples/smoke-test.md",
@@ -852,7 +852,7 @@
   {
    "path": "playbook/05-会话复盘.md",
    "bytes": 19644,
-   "sha256": "b011cfc85078ab10a7e7bc4013bd65948898cfad6127b446fbe9dd448e101206"
+   "sha256": "0b8c67d99077ae2109da0f616cd181f2100a632f0b7f19a728ba4b7e5c8a4d72"
   },
   {
    "path": "playbook/06-示例用法.md",
@@ -892,7 +892,7 @@
   {
    "path": "sessions/07-Lecture2-Signals-PPT双版本.md",
    "bytes": 469044,
-   "sha256": "73b44328c08cbf25d8a366ec8bfe4d495be98b7b4cef22fec8284d5a84ad972e"
+   "sha256": "53ba7f798f30dd2c9486f4d7f910c8680291ea796dd271535aa79d1a2839802c"
   },
   {
    "path": "sessions/08-worker加监工模式.md",
@@ -1017,17 +1017,17 @@
   {
    "path": "skills/native-textbook/assets/review-examples/compare-p03-matrix.png",
    "bytes": 132555,
-   "sha256": "37ce05b667a93d3170f451b1bc0e901eb069742b8827ad056659b2442e835067"
+   "sha256": "da2e7a7294e298e3c949bc2f16c1005f640aca0c38aced17dcd58ee42bcc2ddb"
   },
   {
    "path": "skills/native-textbook/assets/review-examples/compare-p05-waveforms.png",
    "bytes": 78285,
-   "sha256": "2d3c8fa9e965f7d91aa63e5fedf11f8b3c49d47010a7d9c8d2bb09c19a77760e"
+   "sha256": "9e17ea638d196bad42a7ae7f7e0e9f587d76bac02cadfc4b983c418163d5fa78"
   },
   {
    "path": "skills/native-textbook/assets/review-examples/compare-p15-ode.png",
    "bytes": 136373,
-   "sha256": "7b9a2fde0c03e9ca4cc3f4e3f65546dc1f69c413110064df6d48bf29863f21a2"
+   "sha256": "0d7391135fefc258647d04002386025bf97ed861c84e86c5d9c1d163b21119bc"
   },
   {
    "path": "skills/native-textbook/assets/slide-template.tex",
@@ -1486,13 +1486,13 @@
   },
   {
    "path": "verify_pack.py",
-   "bytes": 4744,
-   "sha256": "b3608278616ac48150e7e9c41c591cfbd64527c31dcaace3cbe96a6e0f4b9be1"
+   "bytes": 5134,
+   "sha256": "a96a03d8b13eba3d1667091766cf396d83177272e5b3016317d48c22bb25395c"
   },
   {
    "path": "wheels/pymupdf-1.28.0-cp310-abi3-win_amd64.whl",
    "bytes": 19772869,
-   "sha256": "5d375723c2f82fddfb91fcb629f2515b52c6163a5643c3446163f04f6ef35ab3"
+   "sha256": "bb77014de31ad2a32989f6c93050d4047a915871aa0133068131f3cea9856ebb"
   }
  ]
 }
